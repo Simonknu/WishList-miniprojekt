@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -26,7 +27,14 @@ public class OnskelisteController {
             return "OnskeListe-Display";
         }
         return "index";
-
+    }
+    @GetMapping("/{listID}/delete/{wishID}")
+    public String deleteWishFromList(@PathVariable String listID, @PathVariable String wishID)
+    {
+        OnskeListe wishList = service.searchForList(listID);
+        System.out.println(listID+wishID);
+        wishList.deleteWish(wishID);
+        return "redirect:/wishlist/" + listID;
     }
 
 }

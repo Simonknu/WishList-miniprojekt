@@ -19,6 +19,7 @@
             <td th:text="${onske.name}"/>
             <td th:text="${onske.description}"/>
             <td th:text="${onske.link}"/>
+            <td><a th:href="@{|/wishlist/${wishlist.name}/delete/${onske.name}|}">delete</a></td>
         </tr>
         </tbody>
     </table>

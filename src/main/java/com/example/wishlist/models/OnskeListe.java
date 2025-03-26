@@ -19,4 +19,8 @@ public class OnskeListe {
     public List<Onske> getOnsker() {
         return onsker;
     }
+
+    public void deleteWish(String wishID) {
+        onsker.removeIf(wish -> wish.getName().equals(wishID));
+    }
 }
