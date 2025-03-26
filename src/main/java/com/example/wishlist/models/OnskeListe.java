@@ -11,4 +11,12 @@ public class OnskeListe {
         this.name = name;
         this.onsker = onsker;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public List<Onske> getOnsker() {
+        return onsker;
+    }
 }

@@ -11,4 +11,16 @@ public class Onske {
         this.description = description;
         this.link = link;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public String getLink() {
+        return link;
+    }
 }

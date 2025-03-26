@@ -6,7 +6,6 @@ import org.springframework.stereotype.Controller;
 @Controller
 public class BrugerController {
 
-
     private BrugerService brugerService;
 
     public BrugerController(BrugerService brugerService){
