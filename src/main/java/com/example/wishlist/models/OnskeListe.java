@@ -9,6 +9,11 @@ public class OnskeListe {
 
 
 
+    public OnskeListe (String name, List Onsker){
+        this.name = name;
+        this.Onsker = Onsker;
+    }
+
     public OnskeListe (String name){
         this.name = name;
         this.Onsker = new ArrayList<>();

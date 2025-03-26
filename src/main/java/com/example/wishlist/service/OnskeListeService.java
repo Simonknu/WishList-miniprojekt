@@ -15,4 +15,8 @@ public class OnskeListeService {
     public OnskeListeService(OnskeListeRepository repository) {
         this.repository = repository;
     }
+
+    public void opretOnskeListe(String name){
+        repository.createOnskeListe(name);
+    }
 }
