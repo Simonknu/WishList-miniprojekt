@@ -3,7 +3,9 @@ package com.example.wishlist.controller;
 import com.example.wishlist.service.BrugerService;
 import org.springframework.stereotype.Controller;
 
+@Controller
 public class BrugerController {
+
 
     private BrugerService brugerService;
 
@@ -11,5 +13,4 @@ public class BrugerController {
         this.brugerService = brugerService;
     }
 
-    @Controller
 }
