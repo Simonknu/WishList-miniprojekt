@@ -39,4 +39,18 @@ public class BrugerRepository {
         }
         return false;
     }
+
+    public void opdaterProfil(Bruger bruger) {
+
+
+        for (Bruger b : gemteBrugere) {
+            if (bruger.getUserName().equals(b.getUserName()) && bruger.getPassword().equals(b.getPassword())) {
+
+                b.setUserName(bruger.getUserName());
+                b.setPassword(bruger.getPassword());
+
+            }
+        }
+
+    }
 }

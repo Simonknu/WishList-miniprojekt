@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>opdater profil</title>
+</head>
+<body>
+
+
+<form
+        role="form"
+        method="post"
+        th:action="@{/bruger/opdaterprofil}"
+        th:object="${bruger}"
+>
+
+  <br/>
+
+  <label for="userName">Brugernavn</label>
+  <input
+          id="userName"
+          type="text"
+          th:field="*{userName}"
+          th:value="${bruger.userName}"
+          required
+  />
+  <br/>
+  <label for="password">Adgangskode</label>
+  <input
+          id="password"
+          type="text"
+          th:field="*{password}"
+          th:value="${bruger.password}"
+          required
+  />
+
+
+  <br/>
+  <button type="submit">Opdatér profil</button>
+  <br/>
+
+  </form>
+
+
+</body>
+</html>

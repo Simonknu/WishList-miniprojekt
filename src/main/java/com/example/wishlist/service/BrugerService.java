@@ -20,4 +20,8 @@ public class BrugerService {
     public boolean logInd(String userName, String password) {
         return brugerRepository.logInd(userName,password);
     }
+
+    public void opdaterProfil(Bruger bruger) {
+        brugerRepository.opdaterProfil(bruger);
+    }
 }
