@@ -1,7 +1,7 @@
 package com.example.wishlist.controller;
 
 import com.example.wishlist.models.Bruger;
-import com.example.wishlist.service.BrugerService;
+import com.example.wishlist.service.Service;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,10 +11,10 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 public class BrugerController {
 
-    private BrugerService brugerService;
+    private Service service;
 
-    public BrugerController(BrugerService brugerService) {
-        this.brugerService = brugerService;
+    public BrugerController(Service service) {
+        this.service = service;
     }
 
 
@@ -26,7 +26,7 @@ public class BrugerController {
 
     @PostMapping("/gem")
     public String gemBruger(@ModelAttribute Bruger bruger) {
-        brugerService.gemBruger(bruger);
+        service.gemBruger(bruger);
         return "redirect:/";
     }
 
@@ -39,7 +39,7 @@ public class BrugerController {
     public String logInd(@RequestParam("userName") String userName, @RequestParam("password") String password,
                          HttpSession session,
                          Model model) {
-        if (brugerService.logInd(userName, password)) {
+        if (service.logInd(userName, password)) {
             session.setAttribute("bruger", new Bruger(userName, password));
             session.setMaxInactiveInterval(1800);
             return "redirect:/bruger/profil";

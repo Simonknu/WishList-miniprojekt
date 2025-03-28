@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Repository
-public class BrugerRepository {
+public class BrugerRepository extends com.example.wishlist.repository.Repository {
 
     List<Bruger> gemteBrugere = new ArrayList<>();
 
