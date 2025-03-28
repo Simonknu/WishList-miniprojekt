@@ -20,6 +20,7 @@ import java.util.List;
 public class OnskeListeRepository {
 
     private final JdbcTemplate jdbcTemplate;
+    private final OnskeListeRowMapper onskeListeRowMapper = new OnskeListeRowMapper();
 
     public OnskeListeRepository(@Value("${spring.datasource.url}")
                                 String dbUrl,
@@ -44,7 +45,7 @@ public class OnskeListeRepository {
                 "FROM wishLists w " +
                 "JOIN users u ON w.user_id = u.id " +
                 "WHERE u.username = ?";
-        return jdbcTemplate.query(sql, new OnskeListeRowMapper(), bruger);
+        return jdbcTemplate.query(sql, onskeListeRowMapper, bruger);
     }
 
     public class OnskeListeRowMapper implements RowMapper<OnskeListe> {

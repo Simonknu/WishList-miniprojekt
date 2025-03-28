@@ -2,10 +2,8 @@ package com.example.wishlist.controller;
 
 
 import com.example.wishlist.models.Bruger;
-import com.example.wishlist.models.OnskeListe;
-import com.example.wishlist.service.OnskeListeService;
+import com.example.wishlist.service.BaseService;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,11 +12,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("onskeListe")
 public class OnskeListeController {
 
-    private final OnskeListeService service;
+    private final BaseService service;
 
 
 
-    public OnskeListeController(OnskeListeService service){
+    public OnskeListeController(BaseService service){
         this.service = service;
     }
 
