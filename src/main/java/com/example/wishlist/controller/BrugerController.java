@@ -41,7 +41,7 @@ public class BrugerController {
                          Model model) {
         if (brugerService.logInd(userName, password)) {
             session.setAttribute("bruger", new Bruger(userName, password));
-            session.setMaxInactiveInterval(30);
+            session.setMaxInactiveInterval(1800);
             return "redirect:/bruger/profil";
 
         } else {
