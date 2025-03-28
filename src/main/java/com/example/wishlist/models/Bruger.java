@@ -3,12 +3,12 @@ package com.example.wishlist.models;
 public class Bruger {
     private String userName;
     private String password;
-    private String name;
+    //private String firstName;
 
-    public Bruger(String userName, String password, String name) {
+    public Bruger(String userName, String password) {
         this.userName = userName;
         this.password = password;
-        this.name = name;
+
     }
 
     public Bruger(){
@@ -31,11 +31,5 @@ public class Bruger {
         this.password = password;
     }
 
-    public String getName() {
-        return name;
-    }
 
-    public void setName(String name) {
-        this.name = name;
-    }
 }

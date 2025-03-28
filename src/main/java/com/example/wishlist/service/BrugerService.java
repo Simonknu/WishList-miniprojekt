@@ -7,13 +7,17 @@ import org.springframework.stereotype.Service;
 @Service
 public class BrugerService {
 
-    private BrugerRepository brugerRepository;
+    private final BrugerRepository brugerRepository;
 
     public BrugerService(BrugerRepository brugerRepository){
         this.brugerRepository = brugerRepository;
     }
 
-    public void saveBruger(Bruger bruger) {
-        brugerRepository.saveBruger(bruger);
+    public void gemBruger(Bruger bruger) {
+        brugerRepository.gemBruger(bruger);
+    }
+
+    public boolean logInd(String userName, String password) {
+        return brugerRepository.logInd(userName,password);
     }
 }
