@@ -23,4 +23,15 @@ public class OnskeListe {
     public void deleteWish(String wishID) {
         onsker.removeIf(wish -> wish.getName().equals(wishID));
     }
+
+    public void addWish(Onske onske)
+    {
+        onsker.add(onske);
+    }
+
+    public Onske updateWish(Onske onske, Onske gammelOnske) {
+        onsker.remove(gammelOnske) ;
+        onsker.add(onske);
+        return onske;
+    }
 }

@@ -31,4 +31,13 @@ public class OnskeListeRepository {
         }
         return null;
     }
+
+    public Onske addWishTo(String listName, Onske onske) {
+        searchLists(listName).addWish(onske);
+        return onske;
+    }
+
+    public Onske updateWish(Onske onske, Onske gammelOnske, String listID) {
+        return searchLists(listID).updateWish(onske, gammelOnske);
+    }
 }

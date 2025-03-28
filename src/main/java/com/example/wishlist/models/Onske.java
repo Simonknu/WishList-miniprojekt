@@ -5,6 +5,8 @@ public class Onske {
     private String description;
     private String link;
 
+    public Onske(){}
+
     public Onske(String name, String description, String link)
     {
         this.name = name;
@@ -22,5 +24,17 @@ public class Onske {
 
     public String getLink() {
         return link;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setLink(String link) {
+        this.link = link;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }
