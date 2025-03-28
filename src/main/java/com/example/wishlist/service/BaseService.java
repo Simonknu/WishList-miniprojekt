@@ -4,14 +4,17 @@ import com.example.wishlist.models.Bruger;
 import com.example.wishlist.repository.BrugerRepository;
 import org.springframework.stereotype.Service;
 
+
 @Service
-public class BrugerService {
+public class BaseService {
+
 
     private final BrugerRepository brugerRepository;
 
-    public BrugerService(BrugerRepository brugerRepository){
+    public BaseService(BrugerRepository brugerRepository){
         this.brugerRepository = brugerRepository;
     }
+
 
     public void gemBruger(Bruger bruger) {
         brugerRepository.gemBruger(bruger);
