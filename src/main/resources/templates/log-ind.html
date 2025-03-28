@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title> log-ind </title>
+    <link th:href="@{/brugerProfil.css}" rel="stylesheet">
+</head>
+<body>
+<h1 > Log ind </h1>
+
+<form
+        action="/bruger/logind"
+        method="post">
+    <p th:if="${forkertInput}" class="error">Forkert brugernavn eller adgangskode</p>
+    <p><label>Brugernavn</label>
+        <input name="userName" type="text" autofocus></p>
+
+    <p><label>Adgangskode</label>
+        <input name="password" type="password" autofocus></p>
+
+    <p>
+
+        <button type="submit">Log ind</button>
+
+    </p>
+
+</form>
+
+
+</body>
+</html>
