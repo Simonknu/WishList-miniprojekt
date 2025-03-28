@@ -37,6 +37,8 @@ public class OnskeListeRepository {
 
     }
 
+
+
     public List<OnskeListe> getAllOnskeListe(Bruger bruger) {
         String sql = "SELECT w.id, w.wishList_name " +
                 "FROM wishLists w " +
