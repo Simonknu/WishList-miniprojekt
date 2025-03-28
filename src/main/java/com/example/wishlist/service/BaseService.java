@@ -2,14 +2,16 @@ package com.example.wishlist.service;
 
 import com.example.wishlist.models.Bruger;
 import com.example.wishlist.repository.BrugerRepository;
-import com.example.wishlist.repository.Repository;
+import org.springframework.stereotype.Service;
 
-public class Service {
+
+@Service
+public class BaseService {
 
 
     private final BrugerRepository brugerRepository;
 
-    public Service (BrugerRepository brugerRepository){
+    public BaseService(BrugerRepository brugerRepository){
         this.brugerRepository = brugerRepository;
     }
 

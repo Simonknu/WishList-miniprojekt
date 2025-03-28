@@ -1,7 +1,7 @@
 package com.example.wishlist.controller;
 
 import com.example.wishlist.models.Bruger;
-import com.example.wishlist.service.Service;
+import com.example.wishlist.service.BaseService;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,9 +11,9 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 public class BrugerController {
 
-    private Service service;
+    private final BaseService service;
 
-    public BrugerController(Service service) {
+    public BrugerController(BaseService service) {
         this.service = service;
     }
 
