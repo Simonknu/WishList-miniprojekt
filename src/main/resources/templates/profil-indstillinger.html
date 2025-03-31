@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>opdater profil</title>
+    <meta charset="UTF-8">
+    <title>opdater profil</title>
+
 </head>
 <body>
 
@@ -14,32 +15,37 @@
         th:object="${bruger}"
 >
 
-  <br/>
+    <br/>
 
-  <label for="userName">Brugernavn</label>
-  <input
-          id="userName"
-          type="text"
-          th:field="*{userName}"
-          th:value="${bruger.userName}"
-          required
-  />
-  <br/>
-  <label for="password">Adgangskode</label>
-  <input
-          id="password"
-          type="text"
-          th:field="*{password}"
-          th:value="${bruger.password}"
-          required
-  />
+    <label for="userName">Brugernavn</label>
+    <input
+            id="userName"
+            type="text"
+            th:field="*{userName}"
+            th:value="${bruger.userName}"
+            required
+    />
+    <br/>
+    <label for="password">Adgangskode</label>
+    <input
+            id="password"
+            type="text"
+            th:field="*{password}"
+            th:value="${bruger.password}"
+            required
+    />
 
 
-  <br/>
-  <button type="submit">Opdatér profil</button>
-  <br/>
+    <br/>
+    <button type="submit">Opdatér profil</button>
+    <br/>
+    <br/>
+    <form th:action="@{/attractions/delete/{name}(name=${attraction.name})}" method="post"
+          onsubmit="return confirm('Er du sikker på at du vil slette din bruger');">
+        <button type="submit" class="btn btn-delete">Slet profil</button>
+    </form>
 
-  </form>
+</form>
 
 
 </body>

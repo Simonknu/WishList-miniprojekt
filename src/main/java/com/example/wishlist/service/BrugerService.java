@@ -24,4 +24,11 @@ public class BrugerService {
     public void opdaterProfil(Bruger bruger) {
         brugerRepository.opdaterProfil(bruger);
     }
+
+    public void sletBruger(String userName) {
+        brugerRepository.sletBruger(userName);
+    }
+
+
+
 }

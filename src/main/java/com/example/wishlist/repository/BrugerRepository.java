@@ -1,6 +1,7 @@
 package com.example.wishlist.repository;
 
 import com.example.wishlist.models.Bruger;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
@@ -8,6 +9,12 @@ import java.util.List;
 
 @Repository
 public class BrugerRepository {
+    private final JdbcTemplate jdbcTemplate;
+
+    public BrugerRepository(JdbcTemplate jdbcTemplate) {
+        this.jdbcTemplate = jdbcTemplate;
+    }
+
 
     List<Bruger> gemteBrugere = new ArrayList<>();
 
@@ -28,7 +35,7 @@ public class BrugerRepository {
     }
 
     private void makeBrugere() {
-        gemteBrugere.add(new Bruger("daniellaErSej", "daniella123"));
+        gemteBrugere.add(new Bruger("daniella", "asd123"));
     }
 
     public boolean logInd(String userName, String password) {
@@ -53,4 +60,13 @@ public class BrugerRepository {
         }
 
     }
+
+
+        public void sletBruger(String userName) {
+            String sql = "DELETE FROM BRUGER WHERE USERNAME = ?";
+            jdbcTemplate.update(sql, userName);
+        }
+
+
+
 }

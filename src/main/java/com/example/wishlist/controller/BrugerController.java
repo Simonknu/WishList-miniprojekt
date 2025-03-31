@@ -103,6 +103,17 @@ public class BrugerController {
 
     }
 
+    @PostMapping("/sletprofil")
+    public String sletProfil(HttpSession session) {
+        Bruger bruger = (Bruger) session.getAttribute("bruger");
+
+        if (bruger != null) {
+            brugerService.sletBruger(bruger.getUserName());
+            session.invalidate(); // Log brugeren ud efter sletning
+        }
+
+        return "redirect:/";
+    }
 
 
 
