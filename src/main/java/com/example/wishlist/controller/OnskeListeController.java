@@ -37,8 +37,8 @@ return "index";
     }
 
     @PostMapping("/gemOnskeListe")
-    public String gemOpretOnskeListe(String name){
-       service.opretOnskeListe(name);
+    public String gemOpretOnskeListe(String name, String username){
+       service.opretOnskeListe(name, username);
 
 return "redirect:/testForOnskeListe";
     }

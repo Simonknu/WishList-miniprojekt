@@ -31,7 +31,7 @@ public class BaseService {
 //-----------------------------ONSKE LISTE METHODS---------------------------------------------
 
 
-    public void opretOnskeListe(String name){
-        onskeListeRepository.createOnskeListe(name);
+    public void opretOnskeListe(String name,String username){
+        onskeListeRepository.createOnskeListe(name, username);
     }
 }

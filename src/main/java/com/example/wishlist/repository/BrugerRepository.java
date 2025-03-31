@@ -1,6 +1,7 @@
 package com.example.wishlist.repository;
 
 import com.example.wishlist.models.Bruger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
@@ -15,19 +16,8 @@ public class BrugerRepository {
     List<Bruger> gemteBrugere = new ArrayList<>();
     private final JdbcTemplate jdbcTemplate;
 
-    public BrugerRepository(@Value("${spring.datasource.url}")
-                                String dbUrl,
-                                @Value("${spring.datasource.username}")
-                                String username,
-                                @Value("${spring.datasource.password}")
-                                String password) {
-        DriverManagerDataSource dataSource = new DriverManagerDataSource();
-        dataSource.setUrl(dbUrl);             // Use injected dbUrl directly
-        dataSource.setUsername(username);     // Use injected username directly
-        dataSource.setPassword(password);     // Use injected password directly
-        dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
-
-        this.jdbcTemplate = new JdbcTemplate(dataSource);
+    public BrugerRepository(JdbcTemplate jdbcTemplate){
+        this.jdbcTemplate = jdbcTemplate;
 
     }
 
