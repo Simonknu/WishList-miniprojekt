@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" >
+    <title>Title</title>
+</head>
+<body>
+<h1>Here is a list of all wish Lists</h1>
+<ul>
+    <li th:each="wishList : ${wishLists}">
+        <strong th:text="${wishList.name}"></strong>
+    </li>
+</ul>
+</body>
+</html>

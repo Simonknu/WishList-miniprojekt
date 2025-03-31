@@ -10,7 +10,7 @@ import java.util.List;
 public class OnskeListeRowMapper implements RowMapper<OnskeListe> {
     @Override
     public OnskeListe mapRow(ResultSet rs, int rowNum) throws SQLException {
-        String name = rs.getString("name");
+        String name = rs.getString("wishList_name");
 
         List<Onske> Onsker = new ArrayList<>();
         // Return the Attraction object with tags

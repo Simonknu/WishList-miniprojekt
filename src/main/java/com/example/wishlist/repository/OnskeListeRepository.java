@@ -26,7 +26,7 @@ public class OnskeListeRepository {
 
 
     public List<OnskeListe> faOnskeListeFraBruger(String username) {
-        String sql = "SELECT w.id, w.wishList_name " +
+        String sql = "SELECT w.wishList_name " +
                 "FROM wishLists w " +
                 "JOIN users u ON w.user_id = u.id " +
                 "WHERE u.username = ?";
