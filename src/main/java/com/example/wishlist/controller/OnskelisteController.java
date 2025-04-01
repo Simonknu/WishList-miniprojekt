@@ -52,6 +52,26 @@ public class OnskelisteController {
         return "redirect:/wishlist/"+ listID;
     }
 
+    @GetMapping("/{listID}/edit/{wishID}")
+    public String editWish(@PathVariable String listID,  Model model, @PathVariable String wishID )
+    {
+        Onske o = service.searchForList(listID).getOnske(wishID);
+        model.addAttribute("onske", o);
+        model.addAttribute("wishlistID",listID);
+        model.addAttribute("wishID",wishID);
+        return "OnskeListe-Edit";
+    }
+
+    @PostMapping("/{listID}/{wishID}/replace")
+    public String replaceWish(@ModelAttribute("onske") Onske onske, @PathVariable String listID, @PathVariable String wishID )
+    {
+        OnskeListe list = service.searchForList(listID);
+        list.deleteWish(wishID);
+        list.addWish(onske);
+
+        return "redirect:/wishlist/"+ listID;
+    }
+
 
 
 }

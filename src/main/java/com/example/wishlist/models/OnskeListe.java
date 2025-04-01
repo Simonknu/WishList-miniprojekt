@@ -34,4 +34,12 @@ public class OnskeListe {
         onsker.add(onske);
         return onske;
     }
+
+    public Onske getOnske(String wishID) {
+        for (Onske o: onsker)
+        {
+            if (o.getName().equals(wishID)) return o;
+        }
+        return null;
+    }
 }
