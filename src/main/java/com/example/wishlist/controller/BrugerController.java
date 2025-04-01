@@ -48,7 +48,9 @@ public class BrugerController {
             model.addAttribute("forkertInput", true);
             return "log-ind";
         }
+
     }
+
     @GetMapping("/profil")
     public String brugerProfil(HttpSession session, Model model) {
         Bruger bruger = (Bruger) session.getAttribute("bruger");
@@ -83,7 +85,7 @@ public class BrugerController {
     // rediger og slet profil
 
     @GetMapping("/redigerprofil")
-    public String redigerProfil (HttpSession session, Model model){
+    public String redigerProfil(HttpSession session, Model model) {
         Bruger bruger = (Bruger) session.getAttribute("bruger");
 
         if (bruger != null) {
@@ -95,10 +97,13 @@ public class BrugerController {
     }
 
     @PostMapping("/opdaterprofil")
-    public String opdaterProfil(Model model, @ModelAttribute Bruger bruger){
-        brugerService.opdaterProfil(bruger);
-        model.addAttribute("opdateretProfil", bruger);
-        return "redirect:/profil";
+    public String opdaterProfil(HttpSession session, @ModelAttribute Bruger opdateretBruger) {
+        Bruger gammelBruger = (Bruger) session.getAttribute("bruger");
+
+        brugerService.opdaterProfil(gammelBruger, opdateretBruger);
+        session.invalidate();
+
+        return "redirect:/";
 
 
     }
@@ -106,17 +111,10 @@ public class BrugerController {
     @PostMapping("/sletprofil")
     public String sletProfil(HttpSession session) {
         Bruger bruger = (Bruger) session.getAttribute("bruger");
-
-        if (bruger != null) {
-            brugerService.sletBruger(bruger.getUserName());
-            session.invalidate(); // Log brugeren ud efter sletning
-        }
-
+        brugerService.sletBruger(bruger.getUserName());
+        session.invalidate(); // Log brugeren ud efter sletning
         return "redirect:/";
     }
-
-
-
 
 
 }

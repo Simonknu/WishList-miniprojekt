@@ -1,9 +1,13 @@
 package com.example.wishlist.repository;
 
 import com.example.wishlist.models.Bruger;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,57 +20,64 @@ public class BrugerRepository {
     }
 
 
-    List<Bruger> gemteBrugere = new ArrayList<>();
-
-    public BrugerRepository() {
-        makeBrugere();
-    }
-
     public void gemBruger(Bruger bruger) {
-        gemteBrugere.add(bruger);
-    }
+        String indsætBrugerSql = """
+                INSERT INTO USERS (USERNAME, PASSWORD)
+                VALUES(?,?)""";
+        try {
+            jdbcTemplate.update(indsætBrugerSql, bruger.getUserName(), bruger.getPassword());
 
-
-    //dummykode
-    public void getGemteBrugere() {
-        for (Bruger bruger : gemteBrugere) {
-            System.out.println(bruger);
+        } catch (DataIntegrityViolationException e) {
+            throw new IllegalArgumentException("En bruger med navnet '" + bruger.getUserName() + "' eksisterer allerede.");
         }
     }
 
-    private void makeBrugere() {
-        gemteBrugere.add(new Bruger("daniella", "asd123"));
-    }
 
     public boolean logInd(String userName, String password) {
-        for (Bruger bruger : gemteBrugere) {
-            if (bruger.getUserName().equals(userName) && bruger.getPassword().equals(password)) {
-                return true;
-            }
+        String tjekLogindSql = """
+                SELECT COUNT(*) > 0 FROM users WHERE username = ? AND password = ?;
+                """;
+        try {
+           Boolean userExist = jdbcTemplate.queryForObject(tjekLogindSql, Boolean.class, userName , password);
+           return Boolean.TRUE.equals(userExist);
+
+        } catch (DataIntegrityViolationException e) {
+            throw new IllegalArgumentException("Fejl ved login", e);
         }
-        return false;
     }
 
-    public void opdaterProfil(Bruger bruger) {
+    public void opdaterProfil(Bruger gammelBruger, Bruger opdateretBruger) {
+        String opdaterBrugerSql = """
+                UPDATE USERS
+                SET USERNAME=?, PASSWORD=?
+                WHERE USERNAME=? AND PASSWORD=?
+                """;
+        try {
+            jdbcTemplate.update(opdaterBrugerSql, opdateretBruger.getUserName(), opdateretBruger.getPassword(),
+                    gammelBruger.getUserName(), gammelBruger.getPassword());
 
-
-        for (Bruger b : gemteBrugere) {
-            if (bruger.getUserName().equals(b.getUserName()) && bruger.getPassword().equals(b.getPassword())) {
-
-                b.setUserName(bruger.getUserName());
-                b.setPassword(bruger.getPassword());
-
-            }
+        } catch (DataIntegrityViolationException e) {
+            throw new IllegalArgumentException("En bruger med navnet '" + opdateretBruger.getUserName() + "' eksisterer allerede.");
         }
 
     }
 
-
-        public void sletBruger(String userName) {
-            String sql = "DELETE FROM BRUGER WHERE USERNAME = ?";
+    public void sletBruger(String userName) {
+        String sql = "DELETE FROM USERS WHERE USERNAME = ?";
+        try {
             jdbcTemplate.update(sql, userName);
+        } catch (DataIntegrityViolationException e){
+            throw new IllegalArgumentException("En bruger med navnet '" + userName + "' eksisterer allerede.");
+
         }
+    }
 
 
+    private static class BrugerRowMapper implements RowMapper<Bruger> {
+        @Override
+        public Bruger mapRow(ResultSet rs, int rowNum) throws SQLException {
+            return new Bruger(rs.getString("USERNAME"), rs.getString("PASSWORD"));
 
+        }
+    }
 }

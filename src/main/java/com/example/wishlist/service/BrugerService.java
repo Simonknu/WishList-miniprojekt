@@ -21,8 +21,8 @@ public class BrugerService {
         return brugerRepository.logInd(userName,password);
     }
 
-    public void opdaterProfil(Bruger bruger) {
-        brugerRepository.opdaterProfil(bruger);
+    public void opdaterProfil(Bruger gammelBruger, Bruger opdateretBruger) {
+        brugerRepository.opdaterProfil(gammelBruger,opdateretBruger);
     }
 
     public void sletBruger(String userName) {
