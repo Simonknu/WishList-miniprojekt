@@ -40,7 +40,7 @@ public class OnskeListeRepository {
     }
 
 
-    public OnskeListe findOnskeListeByName(String name) {
+    public OnskeListe findOnskeListeMedNavn (String name) {
         return new OnskeListe(name);
     }
 
