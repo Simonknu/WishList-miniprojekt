@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">>
+<head>
+    <meta charset="UTF-8">
+    <title> opret-profil </title>
+    <link th:href="@{/brugerProfil.css}" rel="stylesheet">
+</head>
+<body>
+<div>
+
+    <div>
+        <h1> Opret bruger </h1>
+
+
+
+        <form
+                role="form"
+                method="post"
+                th:action="@{/bruger/gem}"
+                th:object="${bruger}"
+        >
+
+            <br/>
+
+            <label for="userName">Brugernavn</label>
+            <input
+                    id="userName"
+                    type="text"
+                    th:field="*{userName}"
+                    th:value="${bruger.userName}"
+                    required
+            />
+            <br/>
+            <label for="password">Adgangskode</label>
+            <input
+                    id="password"
+                    type="text"
+                    th:field="*{password}"
+                    th:value="${bruger.password}"
+                    required
+            />
+
+
+            <br/>
+            <button type="submit">Opret bruger</button>
+            <br/>
+        </form>
+
+    </div>
+
+</div>
+
+
+</body>
+</html>
