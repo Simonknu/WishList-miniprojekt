@@ -53,6 +53,6 @@ return "showListsByUser";
     public String gemOpretOnskeListe(String name){
        service.opretOnskeListe(name, "alice");
 
-return "redirect:testForOnskeListe";
+      return "testForOnskeListe";
     }
 }
