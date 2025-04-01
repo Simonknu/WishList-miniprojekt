@@ -2,10 +2,11 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>${wishlist.name}</title>
+    <title th:text ="${wishlist.name}"></title>
 </head>
 <body>
 <main>
+    <p th:text ="${wishlist.name}"></p>
     <table>
         <thead>
         <tr>
@@ -24,6 +25,7 @@
         </tr>
         </tbody>
     </table>
+    <a th:href="@{|/wishlist/${wishlist.name}/newWish|}">add</a>
 </main>
 
 </body>
