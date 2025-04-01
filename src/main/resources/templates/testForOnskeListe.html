@@ -31,21 +31,11 @@
     </form>
 </div>
 
-<div>
-    <form action="/redigerOnskeListe" method="get">
-        <button type="submit">
-            edit an existing wishList
-        </button>
+    <form action="/onskeListe/getSpecificWishList">
+        <label for="name"> Look for a sepcific wish list </label>
+        <input type="text" id="name" name="name" required>
+        <button type="submit"> search </button>
     </form>
 </div>
-<p>DOESNT WORK YET</p>
-
-<div><form action="/sletOnskeListe" method="get">
-    <button type="submit">
-        delete a wishList
-    </button>
-</form>
-</div>
-<p>DOESNT WORK YET</p>
 </body>
 </html>

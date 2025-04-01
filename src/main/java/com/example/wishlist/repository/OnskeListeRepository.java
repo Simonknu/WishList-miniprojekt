@@ -20,16 +20,22 @@ public class OnskeListeRepository {
     private final JdbcTemplate jdbcTemplate;
     private final OnskeListeRowMapper onskeListeRowMapper = new OnskeListeRowMapper();
 
+
+    //----------------------------------CONSTRUCTOR---------------------------------------------------------------
     public OnskeListeRepository(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
-
-
+//---------------------------------------GETTER METHOD--------------------------------------------------------------
+    public JdbcTemplate getJdbcTemplate() {
+        return jdbcTemplate;
+    }
+//------------------------------------------------------------------------------------------
     public List<OnskeListe> faOnskeListeFraBruger(String username) {
         String sql = "SELECT w.wishList_name " +
                 "FROM wishLists w " +
                 "JOIN users u ON w.user_id = u.id " +
                 "WHERE u.username = ?";
+
         return jdbcTemplate.query(sql, onskeListeRowMapper, username);
     }
 
@@ -41,10 +47,12 @@ public class OnskeListeRepository {
 
 
     public OnskeListe findOnskeListeMedNavn (String name) {
-        return new OnskeListe(name);
+        String sql = "SELECT w.wishList_name FROM wishLists w WHERE wishList_name = ?";
+
+        return jdbcTemplate.queryForObject(sql,onskeListeRowMapper, name);
     }
 
-    public void createOnskeListe(String name, String username) {
+    public void opretOnskeListe(String name, String username) {
 
         String userIdQuery = "SELECT id FROM users WHERE username = ?";
         Integer userId = jdbcTemplate.queryForObject(userIdQuery, Integer.class, username);
@@ -53,16 +61,20 @@ public class OnskeListeRepository {
         jdbcTemplate.update(sql, userId, name);
     }
 
-    public void addOnske() {
+    public void tilfojeOnske() {
 
     }
 
-    public void deleteOnske() {
+    public void sletOnske(String name) {
+String sql = "DELETE FROM wishLists WHERE wishList_name = ?";
 
+jdbcTemplate.update(sql, name);
     }
 
-    public void updateOnskeListe() {
+    public void redigerOnskeListe(String oldName, String newName, String newDescription, List<Onske> wishes) {
+        String sql = "UPDATE attractions SET name = ?, description = ?, WHERE name = ?";
 
+        jdbcTemplate.update(sql, newName, newDescription, oldName);
     }
 }
 

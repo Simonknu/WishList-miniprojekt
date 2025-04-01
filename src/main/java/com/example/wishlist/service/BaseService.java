@@ -35,7 +35,15 @@ public class BaseService {
 
 
     public void opretOnskeListe(String name,String username){
-        onskeListeRepository.createOnskeListe(name, username);
+        onskeListeRepository.opretOnskeListe(name, username);
+    }
+
+    public void sletOnskeListe(String name){
+        onskeListeRepository.sletOnske(name);
+    }
+
+    public void redigerOnskeListe(String oldName, String newName, String newDescription, List<Onske> onsker){
+        onskeListeRepository.redigerOnskeListe(oldName, newName, newDescription, onsker);
     }
 
     public List<OnskeListe> showAllOnskeliste(){
@@ -45,4 +53,10 @@ public class BaseService {
     public List<OnskeListe> showAllOnskeListeByUser(String username){
         return onskeListeRepository.faOnskeListeFraBruger(username);
     }
+
+    public OnskeListe faOnskeListeMedNavn(String name){
+        return onskeListeRepository.findOnskeListeMedNavn(name);
+    }
+
+
 }

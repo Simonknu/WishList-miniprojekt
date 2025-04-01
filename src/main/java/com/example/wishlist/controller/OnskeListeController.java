@@ -55,4 +55,28 @@ return "showListsByUser";
 
       return "testForOnskeListe";
     }
+
+
+    @GetMapping("/getSpecificWishList")
+        public String faOnskeListeMedNavn(String name, Model model){
+
+        OnskeListe onskeListe = service.faOnskeListeMedNavn(name);
+        model.addAttribute("wishList", onskeListe);
+
+
+        return "showSpecificWishList";
+
+        }
+
+        @PostMapping("/{name}/sletOnskeListe")
+    public String sletOnskeListe(String name){
+        service.sletOnskeListe(name);
+return "redirect:/onskeListe/showAllOnskeListe";
+        }
+
+        @GetMapping("/{name}/redigerOnskeListe")
+    public String redigerOnskeListe(String name){
+        return "redirect:/onskeListe/getToTest";
+        }
+
 }

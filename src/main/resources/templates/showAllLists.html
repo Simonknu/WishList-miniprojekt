@@ -6,10 +6,24 @@
 </head>
 <body>
 <h1>Here is a list of all wish Lists</h1>
-<ul>
-    <li th:each="wishList : ${wishLists}">
+<tr th:each="wishList : ${wishLists}">
+    <td>
         <strong th:text="${wishList.name}"></strong>
-    </li>
-</ul>
+    </td>
+    <td>
+        <form th:action="@{/onskeListe/redigerOnskeListe}">
+            <button type="submit">Edit</button>
+        </form>
+        <form th:action="@{/onskeListe/{name}/sletOnskeListe}" method="post">
+            <input type="hidden" name="name" th:value="${wishList.name}" >
+            <button type="submit">Delete</button>
+        </form>
+    </td>
+</tr>
+<br>
+<h2>Edit Buttons dont work</h2>
+<br>
+
+<a th:href="@{/onskeListe/getToTest}" class="button">Back to Attractions List</a>
 </body>
 </html>
