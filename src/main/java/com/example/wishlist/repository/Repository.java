@@ -2,6 +2,7 @@ package com.example.wishlist.repository;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 
+
 public class Repository {
 
     private final JdbcTemplate jdbc;

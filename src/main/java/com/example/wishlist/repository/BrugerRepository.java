@@ -1,20 +1,24 @@
 package com.example.wishlist.repository;
 
 import com.example.wishlist.models.Bruger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Repository
-public class BrugerRepository extends com.example.wishlist.repository.Repository {
+public class BrugerRepository {
 
     List<Bruger> gemteBrugere = new ArrayList<>();
+    private final JdbcTemplate jdbcTemplate;
 
-    public BrugerRepository(JdbcTemplate jdbc){
-        super(jdbc);
-        makeBrugere();
+    public BrugerRepository(JdbcTemplate jdbcTemplate){
+        this.jdbcTemplate = jdbcTemplate;
+
     }
 
     public void gemBruger(Bruger bruger) {
