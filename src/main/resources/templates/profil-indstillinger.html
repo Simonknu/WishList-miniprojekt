@@ -39,14 +39,13 @@
     <br/>
     <button type="submit">Opdatér profil</button>
     <br/>
-    <br/>
-    <form th:action="@{/bruger/sletprofil}" method="post"
-          onsubmit="return confirm('Er du sikker på at du vil slette din bruger');">
-        <button type="submit" class="btn btn-delete">Slet profil</button>
-    </form>
-
 </form>
 
+<form th:action="@{/bruger/sletprofil}" method="post"
+      onsubmit="return confirm('Er du sikker på, at du vil slette din bruger?');">
+    <button type="submit" class="btn btn-delete">Slet profil</button>
+</form>
 
 </body>
+
 </html>

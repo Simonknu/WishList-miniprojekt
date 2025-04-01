@@ -72,7 +72,6 @@ public class BrugerRepository {
         }
     }
 
-
     private static class BrugerRowMapper implements RowMapper<Bruger> {
         @Override
         public Bruger mapRow(ResultSet rs, int rowNum) throws SQLException {
