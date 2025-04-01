@@ -2,17 +2,13 @@ package com.example.wishlist.models;
 
 public class Bruger {
     private String userName;
-    private String password;
-    //private String firstName;
+    private int password;
+    private String name;
 
-    public Bruger(String userName, String password) {
+    public Bruger(String userName, int password, String name) {
         this.userName = userName;
         this.password = password;
-
-    }
-
-    public Bruger(){
-
+        this.name = name;
     }
 
     public String getUserName() {
@@ -23,13 +19,19 @@ public class Bruger {
         this.userName = userName;
     }
 
-    public String getPassword() {
+    public int getPassword() {
         return password;
     }
 
-    public void setPassword(String password) {
+    public void setPassword(int password) {
         this.password = password;
     }
 
+    public String getName() {
+        return name;
+    }
 
+    public void setName(String name) {
+        this.name = name;
+    }
 }
