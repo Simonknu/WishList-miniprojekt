@@ -71,12 +71,12 @@ public class BrugerRepository {
 
         }
     }
-
-    private static class BrugerRowMapper implements RowMapper<Bruger> {
-        @Override
-        public Bruger mapRow(ResultSet rs, int rowNum) throws SQLException {
-            return new Bruger(rs.getString("USERNAME"), rs.getString("PASSWORD"));
-
-        }
-    }
+//
+//    private static class BrugerRowMapper implements RowMapper<Bruger> {
+//        @Override
+//        public Bruger mapRow(ResultSet rs, int rowNum) throws SQLException {
+//            return new Bruger(rs.getString("USERNAME"), rs.getString("PASSWORD"));
+//
+//        }
+//    }
 }

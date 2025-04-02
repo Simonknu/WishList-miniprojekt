@@ -100,7 +100,7 @@ public class BrugerController {
     public String opdaterProfil(HttpSession session, @ModelAttribute Bruger opdateretBruger) {
         Bruger gammelBruger = (Bruger) session.getAttribute("bruger");
 
-        brugerService.opdaterProfil(gammelBruger, opdateretBruger);
+        service.opdaterProfil(gammelBruger, opdateretBruger);
         session.invalidate();
 
         return "redirect:/";
@@ -111,7 +111,7 @@ public class BrugerController {
     @PostMapping("/sletprofil")
     public String sletProfil(HttpSession session) {
         Bruger bruger = (Bruger) session.getAttribute("bruger");
-        brugerService.sletBruger(bruger.getUserName());
+        service.sletBruger(bruger.getUserName());
         session.invalidate(); // Log brugeren ud efter sletning
         return "redirect:/";
     }
