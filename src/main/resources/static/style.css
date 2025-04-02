@@ -63,6 +63,9 @@ body {
     transition: box-shadow 0.2s ease-in-out;
 }
 .btn-back {
+    position: absolute;
+    top: 20px;
+    left: 20px;
     font-size: 1.2rem;
     font-weight: bold;
     font-family: Arial, sans-serif;
@@ -70,11 +73,40 @@ body {
     padding: 10px 20px;
     border: 2px solid black;
     cursor: pointer;
-    text-align: left;
-    text-decoration: none;
+    text-align: center;
+    text-decoration: none; /* Fjerner understregning */
     color: #333;
     transition: box-shadow 0.2s ease-in-out;
+    display: inline-block; /* Sikrer korrekt padding og styling */
 }
+
+.btn-back:hover {
+    box-shadow: 5px 5px 0px black;
+}
+
+.btn-profil {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+    background: white;
+    padding: 10px 20px;
+    border: 2px solid black;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none; /* Fjerner understregning */
+    color: #333;
+    transition: box-shadow 0.2s ease-in-out;
+    display: inline-block; /* Sikrer korrekt padding og styling */
+}
+
+.btn-profil:hover {
+    box-shadow: 5px 5px 0px black;
+}
+
+
 
 .btn-custom:hover {
     box-shadow: 5px 5px 0px black; /* Skygge vises kun ved hover */
@@ -94,13 +126,13 @@ input {
 
 /* Fejlbeskeder */
 .error {
-    color: red;
+    color: pink;
     font-size: 14px;
 }
 
 /* Velkomstbesked */
 .welcome-message {
-    font-size: 20px;
+    font-size: 60px;
     font-weight: bold;
     margin-bottom: 20px;
 }
@@ -125,3 +157,37 @@ input {
     background-color: red;
     color: white;
 }
+
+.onsk {
+    font-size: 2rem; /* Gør teksten større */
+    font-weight: bold; /* Gør teksten fed */
+    text-align: left; /* Sikrer venstrejustering */
+}
+
+/**/
+
+/* Fjerner prikker fra listevisningen */
+.listeting-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Dynamisk tilpasning */
+    gap: 20px; /* Afstand mellem ønskelister */
+    list-style-type: none; /* Fjerner punkter fra lister */
+    padding: 0;
+}
+
+/* Styling til hvert wishlist-item */
+.listeting-item {
+    background: white;
+    padding: 15px;
+    border: 2px solid black;
+    box-shadow: 5px 5px 0px black;
+    text-align: center;
+}
+
+/* Gør knapperne større og ensartede */
+.listeting-btn-custom {
+    width: 100%;
+    padding: 10px;
+    font-size: 1.2rem;
+}
+
