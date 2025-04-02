@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>This is where the test is</p>
+
+<div>
+    <form action="/onskeListe/showAllOnskeListe" method="get">
+        <button type="submit">
+            show all wish lists
+        </button>
+    </form>
+</div>
+
+<div>
+    <form action="/onskeListe/showAllOnskelisteByUser" method="get">
+        <button type="submit">
+            show all wish lists from alice in this case
+        </button>
+    </form>
+</div>
+
+<div>
+    <form action="/onskeListe/opretteOnskeListe" method="get">
+        <button type="submit">
+            create a wishList
+        </button>
+    </form>
+</div>
+
+    <form action="/onskeListe/getSpecificWishList">
+        <label for="name"> Look for a sepcific wish list </label>
+        <input type="text" id="name" name="name" required>
+        <button type="submit"> search </button>
+    </form>
+</div>
+</body>
+</html>
