@@ -47,7 +47,7 @@ public class BaseService {
     }
 
     public void sletOnskeListe(String name){
-        onskeListeRepository.sletOnske(name);
+        onskeListeRepository.sletOnskeListe(name);
     }
 
     public void redigerOnskeListe(String oldName, String newName, String newDescription, List<Onske> onsker){

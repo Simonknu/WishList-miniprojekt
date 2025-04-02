@@ -65,7 +65,7 @@ public class OnskeListeRepository {
 
     }
 
-    public void sletOnske(String name) {
+    public void sletOnskeListe(String name) {
 String sql = "DELETE FROM wishLists WHERE wishList_name = ?";
 
 jdbcTemplate.update(sql, name);

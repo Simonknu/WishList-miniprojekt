@@ -1,11 +1,14 @@
 package com.example.wishlist.controller;
 
 import com.example.wishlist.models.Bruger;
+import com.example.wishlist.models.OnskeListe;
 import com.example.wishlist.service.BaseService;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RequestMapping("/bruger")
 @Controller
@@ -56,7 +59,9 @@ public class BrugerController {
         Bruger bruger = (Bruger) session.getAttribute("bruger");
 
         if (bruger != null) {
-            model.addAttribute("brugernavn", bruger.getUserName());  // Henter korrekt navn
+            model.addAttribute("brugernavn", bruger.getUserName()); // Henter korrekt navn
+            List<OnskeListe> wishLists = service.showAllOnskeListeByUser(bruger.getUserName());
+            model.addAttribute("wishLists", wishLists);//                                        // henter Onske Liste
             return "bruger-profil";
         } else {
             return "log-ind";
