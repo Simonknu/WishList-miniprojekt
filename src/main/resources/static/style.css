@@ -1,0 +1,127 @@
+/* Generelle styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #708090;
+    color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+
+}
+
+.h2style{
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Let skygge på tekst */
+  font-size: large;
+}
+/* Container til formularer */
+.container {
+    background: white;
+    padding: 20px;
+    border: 2px solid black; /* Tilføjet for at matche Wish List-stilen */
+    box-shadow: 8px 8px 0px black; /* Matchende skyggeeffekt */
+    width: 300px;
+    text-align: center;
+}
+
+/* Wish List styling */
+.wishlist {
+    font-size: 2rem;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+    color: #333;
+    background: white;
+    padding: 10px 20px;
+    display: inline-block;
+    border: 2px solid black;
+    position: relative;
+    box-shadow: 8px 8px 0px black;
+}
+
+
+/* Knap-container */
+.button-container {
+    display: flex;
+    gap: 10px; /* Afstand mellem knapperne */
+}
+
+/* Knapper (firkantede, hvid baggrund, sort kant) */
+.btn-custom {
+    font-size: 1.2rem;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+    background: white;
+    padding: 10px 20px;
+    border: 2px solid black;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    color: #333;
+    transition: box-shadow 0.2s ease-in-out;
+}
+.btn-back {
+    font-size: 1.2rem;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+    background: white;
+    padding: 10px 20px;
+    border: 2px solid black;
+    cursor: pointer;
+    text-align: left;
+    text-decoration: none;
+    color: #333;
+    transition: box-shadow 0.2s ease-in-out;
+}
+
+.btn-custom:hover {
+    box-shadow: 5px 5px 0px black; /* Skygge vises kun ved hover */
+}
+
+
+/* Input felter */
+input {
+    width: 100%;
+    padding: 8px;
+    margin: 10px 0;
+    border: 2px solid black; /* Sort kant for ensartet stil */
+    background: white;
+    color: #333;
+    border-radius: 0; /* Fjerner afrundede hjørner */
+}
+
+/* Fejlbeskeder */
+.error {
+    color: red;
+    font-size: 14px;
+}
+
+/* Velkomstbesked */
+.welcome-message {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* Slet-knap */
+.btn-delete {
+    font-size: 1.2rem;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+    background: white;
+    padding: 10px 20px;
+    border: 2px solid black;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    color: #333;
+    transition: box-shadow 0.2s ease-in-out, background-color 0.2s;
+}
+
+.btn-delete:hover {
+    box-shadow: 5px 5px 0px black;
+    background-color: red;
+    color: white;
+}

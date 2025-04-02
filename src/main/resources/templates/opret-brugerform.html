@@ -3,15 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title> opret-profil </title>
-    <link th:href="@{/brugerProfil.css}" rel="stylesheet">
+    <link th:href="@{/style.css}" rel="stylesheet">
 </head>
 <body>
 <div>
 
     <div>
-        <h1> Opret bruger </h1>
-
-
 
         <form
                 role="form"
@@ -22,7 +19,7 @@
 
             <br/>
 
-            <label for="userName">Brugernavn</label>
+            <label class="h2style" for="userName">Brugernavn</label>
             <input
                     id="userName"
                     type="text"
@@ -31,7 +28,7 @@
                     required
             />
             <br/>
-            <label for="password">Adgangskode</label>
+            <label class="h2style" for="password">Adgangskode</label>
             <input
                     id="password"
                     type="text"
@@ -40,9 +37,9 @@
                     required
             />
 
-
             <br/>
-            <button type="submit">Opret bruger</button>
+            <br/>
+            <button class="btn-custom" type="submit">Opret bruger</button>
             <br/>
         </form>
 

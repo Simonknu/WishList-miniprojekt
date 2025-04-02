@@ -3,26 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link th:href="@{/brugerProfil.css}" rel="stylesheet">
+    <link th:href="@{/style.css}" rel="stylesheet">
 </head>
 <body>
 
-<h1> Velkommen til Wishlist! </h1>
-<h2> Opret dig som bruger eller log ind </h2>
-<div class="">
-    <a href="/bruger/opret" class="">Opret bruger</a>
+<h1 class="wishlist">Wish List</h1>
+<br>
+<br>
+<h2 class="h2style"> Opret dig som bruger eller log ind </h2>
+<br>
+<div class="button-container">
+    <a href="/bruger/opret" class="btn-custom">Opret bruger</a>
+    <a href="/bruger/logind" class="btn-custom">Log ind</a>
 </div>
 
-<div class="">
-    <a href="/bruger/logind" class="">Log ind</a>
-</div>
-
-
-<div>
-    <form action="/onskeListe/getToTest" method="get">
-        <button class="button" type="submit"> go to test
-        </button>
-    </form>
-</div>
 </body>
 </html>

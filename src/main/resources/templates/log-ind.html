@@ -3,26 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <title> log-ind </title>
-    <link th:href="@{/brugerProfil.css}" rel="stylesheet">
+    <link th:href="@{/style.css}" rel="stylesheet">
 </head>
 <body>
-<h1 > Log ind </h1>
+
 
 <form
         action="/bruger/logind"
         method="post">
     <p th:if="${forkertInput}" class="error">Forkert brugernavn eller adgangskode</p>
-    <p><label>Brugernavn</label>
+    <p><label class="h2style">Brugernavn</label>
         <input name="userName" type="text" autofocus></p>
 
-    <p><label>Adgangskode</label>
+    <p><label class="h2style">Adgangskode</label>
         <input name="password" type="password" autofocus></p>
 
     <p>
-
-        <button type="submit">Log ind</button>
-
+        <button class="btn-custom" type="submit">Log ind</button>
     </p>
+
+    <div class="btn-back">
+        <a class="button-container" href="/" >Tilbage</a>
+    </div>
 
 </form>
 
