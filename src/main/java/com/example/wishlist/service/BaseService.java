@@ -31,6 +31,14 @@ public class BaseService {
         return brugerRepository.logInd(userName,password);
     }
 
+    public void opdaterProfil(Bruger gammelBruger, Bruger opdateretBruger) {
+        brugerRepository.opdaterProfil(gammelBruger,opdateretBruger);
+    }
+
+    public void sletBruger(String userName) {
+        brugerRepository.sletBruger(userName);
+    }
+
 //-----------------------------ONSKE LISTE METHODS---------------------------------------------
 
 
@@ -57,6 +65,4 @@ public class BaseService {
     public OnskeListe faOnskeListeMedNavn(String name){
         return onskeListeRepository.findOnskeListeMedNavn(name);
     }
-
-
 }
