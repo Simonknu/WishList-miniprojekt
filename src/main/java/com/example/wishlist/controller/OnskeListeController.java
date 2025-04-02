@@ -7,6 +7,7 @@ import com.example.wishlist.service.BaseService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -24,6 +25,16 @@ public class OnskeListeController {
         this.service = service;
     }
 
+    @GetMapping("/{listID}")
+    public String getAttractionByName(@PathVariable String listID, Model model) {
+        OnskeListe wishList = service.faOnskeListeMedNavn(listID);
+        if (wishList != null) {
+            model.addAttribute("wishlist",wishList);
+            model.addAttribute("wishes", wishList.getOnsker());
+            return "OnskeListe-Display";
+        }
+        return "index";
+    }
 
     @GetMapping("/showAllOnskelisteByUser")
     public String showAllOnskeListeByUser(Model model){

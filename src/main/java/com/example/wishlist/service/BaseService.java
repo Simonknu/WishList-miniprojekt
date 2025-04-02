@@ -5,6 +5,7 @@ import com.example.wishlist.models.Onske;
 import com.example.wishlist.models.OnskeListe;
 import com.example.wishlist.repository.BrugerRepository;
 import com.example.wishlist.repository.OnskeListeRepository;
+import com.example.wishlist.repository.OnskeRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,10 +17,12 @@ public class BaseService {
 
     private final BrugerRepository brugerRepository;
     private final OnskeListeRepository onskeListeRepository;
+    private final OnskeRepository onskeRepository;
 
-    public BaseService(BrugerRepository brugerRepository, OnskeListeRepository onskeListeRepository){
+    public BaseService(BrugerRepository brugerRepository, OnskeListeRepository onskeListeRepository, OnskeRepository onskeRepository){
         this.brugerRepository = brugerRepository;
         this.onskeListeRepository = onskeListeRepository;
+        this.onskeRepository = onskeRepository;
     }
 
 //-----------------------------BRUGER METHODS--------------------------------------------------------------
@@ -58,5 +61,9 @@ public class BaseService {
         return onskeListeRepository.findOnskeListeMedNavn(name);
     }
 
+//-----------------------------ONSKE METHODS---------------------------------------------
 
+    public Onske addOnske(Onske onske, String listID) {
+
+    }
 }

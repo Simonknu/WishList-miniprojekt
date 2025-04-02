@@ -4,12 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class OnskeListe {
+    private int ID;
     private String name;
     private List<Onske> Onsker;
 
 
     //-------------------------------CONSTRUCTORS --------------------------------------------------------------------
-    public OnskeListe (String name, List Onsker){
+    public OnskeListe (int ID, String name, List<Onske> Onsker){
+        this.ID = ID;
         this.name = name;
         this.Onsker = Onsker;
     }
@@ -35,5 +37,9 @@ public class OnskeListe {
 
     public void setOnsker(List<Onske> onsker) {
         Onsker = onsker;
+    }
+
+    public int getID() {
+        return ID;
     }
 }

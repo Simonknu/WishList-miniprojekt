@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>add ønske</title>
+</head>
+<body>
+
+<header>
+  <h1>Dan Ønske</h1>
+</header>
+<form th:action="@{|/wishlist/${wishlistName}/addNewWish|}" th:method="post" th:object="${onske}" >
+  <label>Name:</label>
+  <input type="text" th:field="*{name}" id="name" required><br>
+
+  <label for="description">description:</label>
+  <input type="text" th:field="*{description}" id="description" required><br>
+
+  <label for="link"> Link:</label>
+  <input type="text" th:field="*{link}" id="link" required><br>
+
+  <button type="submit" value="Save">Submit</button>
+</form>
+</body>
+</html>

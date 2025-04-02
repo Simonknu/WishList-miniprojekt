@@ -65,14 +65,14 @@ public class OnskeListeRepository {
 
     }
 
-    public void sletOnske(String name) {
+    public void sletOnskeListe(String name) {
 String sql = "DELETE FROM wishLists WHERE wishList_name = ?";
 
 jdbcTemplate.update(sql, name);
     }
 
     public void redigerOnskeListe(String oldName, String newName, String newDescription, List<Onske> wishes) {
-        String sql = "UPDATE attractions SET name = ?, description = ?, WHERE name = ?";
+        String sql = "UPDATE wishlists SET name = ?, description = ?, WHERE name = ?";
 
         jdbcTemplate.update(sql, newName, newDescription, oldName);
     }
