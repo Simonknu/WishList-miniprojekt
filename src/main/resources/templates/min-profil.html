@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Min profil</title>
+    <link th:href="@{/brugerProfil.css}" rel="stylesheet">
+
+</head>
+<body>
+
+<h3 th:text="${'Brugernavn: ' + brugernavn}" ></h3>
+<h3 th:text="${'Adgangskode: ' + skjultPassword}" ></h3>
+
+<a th:href="@{/bruger/redigerprofil}">
+    <button type="submit"> Redigér profil</button>
+</a>
+
+</body>
+</html>

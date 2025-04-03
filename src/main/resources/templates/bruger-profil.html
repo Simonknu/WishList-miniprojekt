@@ -7,14 +7,31 @@
 
 </head>
 <body>
+<a th:href="@{/bruger/minprofil}">
+<button type="submit"> Min profil </button>
+</a>
+
 <h1 th:text="${'Velkommen ' + brugernavn}" ></h1>
 
 <br>
 
 
 <h2 style="text-align: left;">Ønkelister:</h2>
+<ul>
+    <li th:each="wishList : ${wishLists}">
+        <form action="/onskeListe/{name}/getSpecificWishList">
+            <input type="hidden" name="name" th:value="${wishList.name}">
+            <button type="submit" th:text="${wishList.name}">
+            </button>
+        </form>
+    </li>
+</ul>
 
-
-
+<form action="/onskeListe/{name}/opretteOnskeListe" method="get">
+    <input type="hidden" name="name" th:value="${brugernavn}">
+    <button type="submit">
+        create a wishList
+    </button>
+</form>
 </body>
 </html>

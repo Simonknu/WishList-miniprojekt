@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -9,10 +9,11 @@ here is where you create a wishlist
 
 
 <div>
-    <form action="/onskeListe/gemOnskeListe" method="post">
+    <form action="/onskeListe/{username}/gemOnskeListe" method="post">
         <label for="name">Name:
 <input type="text" id="name" name="name" required>
         </label>
+        <input type="hidden" name="username" th:value="${brugernavn}">
         <button type="submit">
             create new wish list
         </button>

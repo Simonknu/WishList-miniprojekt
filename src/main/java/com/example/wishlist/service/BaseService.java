@@ -5,7 +5,6 @@ import com.example.wishlist.models.Onske;
 import com.example.wishlist.models.OnskeListe;
 import com.example.wishlist.repository.BrugerRepository;
 import com.example.wishlist.repository.OnskeListeRepository;
-import com.example.wishlist.repository.OnskeRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -32,6 +31,14 @@ public class BaseService {
 
     public boolean logInd(String userName, String password) {
         return brugerRepository.logInd(userName,password);
+    }
+
+    public void opdaterProfil(Bruger gammelBruger, Bruger opdateretBruger) {
+        brugerRepository.opdaterProfil(gammelBruger,opdateretBruger);
+    }
+
+    public void sletBruger(String userName) {
+        brugerRepository.sletBruger(userName);
     }
 
 //-----------------------------ONSKE LISTE METHODS---------------------------------------------
