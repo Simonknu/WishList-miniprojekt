@@ -11,10 +11,10 @@ public class OnskeListeRowMapper implements RowMapper<OnskeListe> {
     @Override
     public OnskeListe mapRow(ResultSet rs, int rowNum) throws SQLException {
         String name = rs.getString("wishList_name");
-        int ID = rs.getInt("wishlist_id");
+        int id = rs.getInt("id");
+        //String ID = rs.getString("id");
         List<Onske> Onsker = new ArrayList<>();
-        // Return the Attraction object with tags
-        return new OnskeListe(ID, name, Onsker);
+        return new OnskeListe(id, name, Onsker);
     }
 
 }

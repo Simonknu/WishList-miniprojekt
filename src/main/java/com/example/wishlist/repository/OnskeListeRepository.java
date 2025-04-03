@@ -33,11 +33,10 @@ public class OnskeListeRepository {
 
     //------------------------------------------------------------------------------------------
     public List<OnskeListe> faOnskeListeFraBruger(String username) {
-        String sql = "SELECT w.wishList_name " +
+        String sql = "SELECT w.wishList_name, w.id " +
                 "FROM wishLists w " +
                 "JOIN users u ON w.user_id = u.id " +
                 "WHERE u.username = ?";
-
         return jdbcTemplate.query(sql, onskeListeRowMapper, username);
     }
 
@@ -49,7 +48,7 @@ public class OnskeListeRepository {
 
 
     public OnskeListe findOnskeListeMedNavn(String name) {
-        String sql = "SELECT w.wishList_name FROM wishLists w WHERE wishList_name = ?";
+        String sql = "SELECT w.wishList_name, w.id FROM wishLists w WHERE wishList_name = ?";
 
         return jdbcTemplate.queryForObject(sql, onskeListeRowMapper, name);
     }

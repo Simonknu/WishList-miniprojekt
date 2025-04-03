@@ -5,6 +5,7 @@ import com.example.wishlist.models.Onske;
 import com.example.wishlist.models.OnskeListe;
 import com.example.wishlist.repository.BrugerRepository;
 import com.example.wishlist.repository.OnskeListeRepository;
+import com.example.wishlist.repository.OnskeRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -78,6 +79,14 @@ public class BaseService {
 
     public Onske getOnske(int listID)
     {
-        return onskeRepository.getOnskeByID();
+        return onskeRepository.getOnskeByID(listID);
+    }
+
+    public void sletOnske(int wishID) {
+        onskeRepository.deleteWish(wishID);
+    }
+
+    public void redigerOnske(int wishID, Onske onske) {
+       onskeRepository.updateWish(wishID, onske);
     }
 }

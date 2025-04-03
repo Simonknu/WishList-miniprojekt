@@ -12,19 +12,16 @@ import java.util.List;
 public class OnskeRepository {
 
     private final JdbcTemplate jdbcTemplate;
-    private OnskeRowMapper onskeRowMapper;
+    private final OnskeRowMapper onskeRowMapper = new OnskeRowMapper();
 
     public OnskeRepository(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-    public List<Onske> getOnskerByWishlistID(int id) {
-        String sql = "SELECT w.wish_name " +
-                "FROM wishes w " +
-                "JOIN wishlists u ON w.wishList_id = u.id " +
-                "WHERE u.id = ?";
+    public List<Onske> getOnskerByWishlistID(int onskeListeIdid) {
+        String sql = "SELECT * FROM wishes WHERE wishList_id = ?";
 
-        return jdbcTemplate.query(sql, onskeRowMapper, id);
+        return jdbcTemplate.query(sql, onskeRowMapper, onskeListeIdid);
     }
 
     public void addToRepository(int ListID, Onske onske) {
@@ -32,10 +29,10 @@ public class OnskeRepository {
         jdbcTemplate.update(sql, ListID, onske.getName(), onske.getDescription(), onske.getLink());
     }
 
-    public void updateWish(Onske onskeOld, Onske onskeNew) {
+    public void updateWish(int id, Onske onskeNew) {
         String sql = "UPDATE wishes SET wish_name = ?, description = ?, wish_name = ? WHERE id = ?";
 
-        jdbcTemplate.update(sql, onskeNew.getName(), onskeNew.getDescription(), onskeNew.getLink(), onskeOld.getID());
+        jdbcTemplate.update(sql, onskeNew.getName(), onskeNew.getDescription(), onskeNew.getLink(), id);
     }
 
     public void deleteWish(int wishID) {
