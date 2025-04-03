@@ -2,36 +2,45 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-    <link th:href="@{/brugerProfil.css}" rel="stylesheet">
+    <title>Wish List</title>
+    <link th:href="@{/style.css}" rel="stylesheet">
 
 </head>
 <body>
 <a th:href="@{/bruger/minprofil}">
-<button type="submit"> Min profil </button>
+<button class="btn-profil" type="submit"> Min profil </button>
 </a>
 
-<h1 th:text="${'Velkommen ' + brugernavn}" ></h1>
+<h1 class="welcome-message" th:text="${'Velkommen ' + brugernavn + '!'}" ></h1>
 
 <br>
 
 
-<h2 style="text-align: left;">Ønkelister:</h2>
-<ul>
-    <li th:each="wishList : ${wishLists}">
+<h2 class="onsk">Ønskelister:</h2>
+<div class="listeting-container">
+    <div class="listeting-item" th:each="wishList : ${wishLists}">
         <form action="/onskeListe/{name}/getSpecificWishList">
             <input type="hidden" name="name" th:value="${wishList.name}">
-            <button type="submit" th:text="${wishList.name}">
-            </button>
+            <button class="listeting-btn-custom" type="submit" th:text="${wishList.name}"></button>
         </form>
-    </li>
-</ul>
+    </div>
+</div>
 
+<br>
+<br>
+<br>
+<br>
 <form action="/onskeListe/{name}/opretteOnskeListe" method="get">
     <input type="hidden" name="name" th:value="${brugernavn}">
-    <button type="submit">
+
+    <button class="btn-custom" type="submit">
         create a wishList
     </button>
 </form>
+<br>
+<br>
+<div>
+    <a class="btn-back" href="/" >Tilbage</a>
+</div>
 </body>
 </html>

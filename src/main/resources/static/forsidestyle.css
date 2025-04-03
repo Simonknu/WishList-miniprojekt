@@ -1,0 +1,59 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    background-color: #708090;
+    color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden; /* Forhindrer at hele siden bliver for stor */
+}
+/* Placér billedet i højre side */
+.photo {
+    position: absolute;
+    right: 1%; /* Juster afstanden fra højre */
+    top: 30%;
+    transform: translateY(-50%); /* Centrerer billedet vertikalt */
+    min-width: 500px;
+}
+/* Wish List styling */
+.wishlist {
+    font-size: 2rem;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+    color: #333;
+    background: white;
+    padding: 10px 20px;
+    display: inline-block;
+    border: 2px solid black;
+    position: relative;
+    box-shadow: 8px 8px 0px black;
+}
+
+.btn-forside{
+
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    font-size: 1.2rem;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+    background: white;
+    padding: 10px 20px;
+    border: 2px solid black;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    color: #333;
+    transition: box-shadow 0.2s ease-in-out;
+}
+
+.btn-forside:hover {
+     box-shadow: 5px 5px 0px black; /* Skygge vises kun ved hover */
+ }

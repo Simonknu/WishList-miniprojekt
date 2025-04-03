@@ -3,18 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link th:href="@{/style.css}" rel="stylesheet">
 </head>
 <body>
-<h1 th:text="${wishList.name}">  </h1>
+<h1 class="h2style" th:text="${wishList.name}">  </h1>
 
-<form th:action="@{/onskeListe/{name}/redigerOnskeListe}">
+<form class="btn-custom" th:action="@{/onskeListe/{name}/redigerOnskeListe}">
     <input type="hidden" name="name" th:value="${wishList.name}">
     <button type="submit">Edit</button>
 </form>
-<form th:action="@{/onskeListe/{name}/sletOnskeListe}" method="post">
+<form class="btn-custom" th:action="@{/onskeListe/{name}/sletOnskeListe}" method="post">
     <input type="hidden" name="name" th:value="${wishList.name}" >
     <button type="submit">Delete</button>
 </form>
+<div>
+    <a class="btn-back" href="/bruger/profil" >Tilbage</a>
+</div>
 
 
 </body>

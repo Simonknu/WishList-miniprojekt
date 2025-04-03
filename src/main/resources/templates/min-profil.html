@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Min profil</title>
-    <link th:href="@{/brugerProfil.css}" rel="stylesheet">
+    <link th:href="@{/style.css}" rel="stylesheet">
 
 </head>
 <body>
@@ -12,8 +12,12 @@
 <h3 th:text="${'Adgangskode: ' + skjultPassword}" ></h3>
 
 <a th:href="@{/bruger/redigerprofil}">
-    <button type="submit"> Redigér profil</button>
+    <button class="btn-custom" type="submit"> Redigér profil</button>
 </a>
+<br>
+<div>
+    <a class="btn-back" href="/bruger/profil" >Tilbage</a>
+</div>
 
 </body>
 </html>
