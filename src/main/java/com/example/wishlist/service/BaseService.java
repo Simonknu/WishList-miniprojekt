@@ -42,7 +42,7 @@ public class BaseService {
     }
 
     public void sletOnskeListe(String name){
-        onskeListeRepository.sletOnske(name);
+        onskeListeRepository.sletOnskeListe(name);
     }
 
     public void redigerOnskeListe(String oldName, String newName, String newDescription, List<Onske> onsker){
@@ -58,12 +58,19 @@ public class BaseService {
     }
 
     public OnskeListe faOnskeListeMedNavn(String name){
-        return onskeListeRepository.findOnskeListeMedNavn(name);
+        OnskeListe result = onskeListeRepository.findOnskeListeMedNavn(name);
+        result.setOnsker(onskeRepository.getOnskerByWishlistID(result.getID()));
+        return result;
     }
 
 //-----------------------------ONSKE METHODS---------------------------------------------
 
-    public Onske addOnske(Onske onske, String listID) {
+    public void addOnske(Onske onske, int listID) {
+        onskeRepository.addToRepository(listID, onske);
+    }
 
+    public Onske getOnske(int listID)
+    {
+        return onskeRepository.getOnskeByID();
     }
 }

@@ -25,11 +25,13 @@ public class OnskeListeRepository {
     public OnskeListeRepository(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
-//---------------------------------------GETTER METHOD--------------------------------------------------------------
+
+    //---------------------------------------GETTER METHOD--------------------------------------------------------------
     public JdbcTemplate getJdbcTemplate() {
         return jdbcTemplate;
     }
-//------------------------------------------------------------------------------------------
+
+    //------------------------------------------------------------------------------------------
     public List<OnskeListe> faOnskeListeFraBruger(String username) {
         String sql = "SELECT w.wishList_name " +
                 "FROM wishLists w " +
@@ -46,10 +48,10 @@ public class OnskeListeRepository {
     }
 
 
-    public OnskeListe findOnskeListeMedNavn (String name) {
+    public OnskeListe findOnskeListeMedNavn(String name) {
         String sql = "SELECT w.wishList_name FROM wishLists w WHERE wishList_name = ?";
 
-        return jdbcTemplate.queryForObject(sql,onskeListeRowMapper, name);
+        return jdbcTemplate.queryForObject(sql, onskeListeRowMapper, name);
     }
 
     public void opretOnskeListe(String name, String username) {
@@ -66,9 +68,9 @@ public class OnskeListeRepository {
     }
 
     public void sletOnskeListe(String name) {
-String sql = "DELETE FROM wishLists WHERE wishList_name = ?";
+        String sql = "DELETE FROM wishLists WHERE wishList_name = ?";
 
-jdbcTemplate.update(sql, name);
+        jdbcTemplate.update(sql, name);
     }
 
     public void redigerOnskeListe(String oldName, String newName, String newDescription, List<Onske> wishes) {

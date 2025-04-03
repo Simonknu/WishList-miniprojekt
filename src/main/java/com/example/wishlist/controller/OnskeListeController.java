@@ -25,16 +25,6 @@ public class OnskeListeController {
         this.service = service;
     }
 
-    @GetMapping("/{listID}")
-    public String getAttractionByName(@PathVariable String listID, Model model) {
-        OnskeListe wishList = service.faOnskeListeMedNavn(listID);
-        if (wishList != null) {
-            model.addAttribute("wishlist",wishList);
-            model.addAttribute("wishes", wishList.getOnsker());
-            return "OnskeListe-Display";
-        }
-        return "index";
-    }
 
     @GetMapping("/showAllOnskelisteByUser")
     public String showAllOnskeListeByUser(Model model){
