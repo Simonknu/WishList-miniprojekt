@@ -11,7 +11,7 @@
 <button class="btn-profil" type="submit"> Min profil </button>
 </a>
 
-<h1 class="welcome-message" th:text="${'Velkommen ' + brugernavn}" ></h1>
+<h1 class="welcome-message" th:text="${'Velkommen ' + brugernavn + '!'}" ></h1>
 
 <br>
 
@@ -26,6 +26,7 @@
     </div>
 </div>
 
+<br>
 
 <form action="/onskeListe/{name}/opretteOnskeListe" method="get">
     <input type="hidden" name="name" th:value="${brugernavn}">

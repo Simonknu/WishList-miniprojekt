@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>opdater profil</title>
+    <link th:href="@{/style.css}" rel="stylesheet">
 
 </head>
 <body>
@@ -37,14 +38,22 @@
 
 
     <br/>
-    <button type="submit">Opdatér profil</button>
+    <button class="btn-custom" type="submit">Opdatér profil</button>
     <br/>
 </form>
+
+<br>
+<br>
+<br>
 
 <form th:action="@{/bruger/sletprofil}" method="post"
       onsubmit="return confirm('Er du sikker på, at du vil slette din bruger?');">
     <button type="submit" class="btn btn-delete">Slet profil</button>
 </form>
+
+<div>
+    <a class="btn-back" href="/bruger/minprofil" >Tilbage</a>
+</div>
 
 </body>
 
