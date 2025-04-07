@@ -5,6 +5,7 @@ import com.example.wishlist.models.Bruger;
 import com.example.wishlist.models.Onske;
 import com.example.wishlist.models.OnskeListe;
 import com.example.wishlist.models.OnskeListeRowMapper;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -48,8 +49,11 @@ public class OnskeListeRepository {
 
     public OnskeListe findOnskeListeMedNavn (String name) {
         String sql = "SELECT w.wishList_name FROM wishLists w WHERE wishList_name = ?";
-
-        return jdbcTemplate.queryForObject(sql,onskeListeRowMapper, name);
+        try {
+            return jdbcTemplate.queryForObject(sql, onskeListeRowMapper, name);
+        } catch (EmptyResultDataAccessException e) {
+            return null; // return null when no wishlist is found
+        }
     }
 
     public void opretOnskeListe(String name, String username) {
@@ -75,6 +79,14 @@ jdbcTemplate.update(sql, name);
         String sql = "UPDATE wishList SET wishList_name = ?, description = ?, WHERE name = ?";
 
         jdbcTemplate.update(sql, newName, newDescription, oldName);
+    }
+
+
+    public boolean gentagetNavn(String name){
+        if (findOnskeListeMedNavn(name) == null){
+            return false;
+        }
+        return true;
     }
 }
 

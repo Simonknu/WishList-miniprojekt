@@ -65,4 +65,8 @@ public class BaseService {
     public OnskeListe faOnskeListeMedNavn(String name){
         return onskeListeRepository.findOnskeListeMedNavn(name);
     }
+
+    public boolean gentagetNavn(String name){
+         return onskeListeRepository.gentagetNavn(name);
+    }
 }

@@ -19,6 +19,7 @@ here is where you create a wishlist
         </button>
     </form>
 </div>
+<p th:if="${gentagetNavn}" class="error">Ønskeliste med dette navn findes allerede</p>
 
 <a th:href="@{/bruger/profil}">Go Back</a>
 </body>

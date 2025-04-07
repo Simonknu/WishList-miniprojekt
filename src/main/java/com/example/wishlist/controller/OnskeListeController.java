@@ -8,9 +8,7 @@ import com.example.wishlist.service.BaseService;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -49,10 +47,16 @@ public class OnskeListeController {
     }
 
     @PostMapping("/{username}/gemOnskeListe")
-    public String gemOpretOnskeListe(String name, String username) {
-        service.opretOnskeListe(name, username);
-
-        return "redirect:/bruger/profil";
+    public String gemOpretOnskeListe(HttpSession session, Model model, String name,
+                                      String username) {
+        if (service.gentagetNavn(name)){
+            model.addAttribute("gentagetNavn", true);
+            Bruger bruger = (Bruger) session.getAttribute("bruger");
+            model.addAttribute("brugernavn", bruger.getUserName());
+            return "opretteOnskeListe";
+        }
+            service.opretOnskeListe(name, username);
+            return "redirect:/bruger/profil";
     }
 
 
