@@ -1,12 +1,7 @@
-
-CREATE
-DATABASE wishList;
-
-USE
-wishList;
-DROP TABLE IF EXISTS users;
-DROP TABLE IF EXISTS wishlists;
 DROP TABLE IF EXISTS wishes;
+DROP TABLE IF EXISTS wishlists;
+DROP TABLE IF EXISTS users;
+
 
 CREATE TABLE users
 (
