@@ -50,8 +50,8 @@ public class BaseService {
         onskeListeRepository.sletOnskeListe(name);
     }
 
-    public void redigerOnskeListe(String oldName, String newName, String newDescription, List<Onske> onsker){
-        onskeListeRepository.redigerOnskeListe(oldName, newName, newDescription, onsker);
+    public void redigerOnskeListe(String oldName, String newName, List<Onske> onsker){
+        onskeListeRepository.redigerOnskeListe(oldName, newName, onsker);
     }
 
     public List<OnskeListe> showAllOnskeliste(){

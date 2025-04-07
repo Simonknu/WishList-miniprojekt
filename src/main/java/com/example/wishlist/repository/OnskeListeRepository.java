@@ -75,10 +75,10 @@ String sql = "DELETE FROM wishLists WHERE wishList_name = ?";
 jdbcTemplate.update(sql, name);
     }
 
-    public void redigerOnskeListe(String oldName, String newName, String newDescription, List<Onske> wishes) {
-        String sql = "UPDATE wishList SET wishList_name = ?, description = ?, WHERE name = ?";
+    public void redigerOnskeListe(String oldName, String newName, List<Onske> wishes) {
+        String sql = "UPDATE wishList SET wishList_name = ?, WHERE name = ?";
 
-        jdbcTemplate.update(sql, newName, newDescription, oldName);
+        jdbcTemplate.update(sql, newName, oldName);
     }
 
 
