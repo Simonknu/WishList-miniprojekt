@@ -7,6 +7,53 @@
 <body>
 <h1 th:text="${wishList.name}">  </h1>
 
+
+<table>
+    <thead>
+    <tr>
+        <th>Wish Name</th>
+        <th>Description</th>
+        <th>Link</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="wish : ${wishList.onsker}">
+        <td th:text="${wish.name}"></td>
+        <td th:text="${wish.description}"></td>
+        <td>
+            <a th:href="${wish.link}" th:text="${wish.link}" target="_blank"></a>
+        </td>
+        <td>
+            <form action="/onskeListe/{listName}/{name}/redigerOnske" method="get">
+                <input type="hidden" name="listName" th:value="${wishList.name}">
+                <input type="hidden" name="name" th:value="${wish.name}">
+                <button>Edit</button>
+            </form>
+
+
+        </td>
+
+        <td>
+            <form action="/onskeListe/{listName}/{name}/sletOnske" method="post">
+                <input type="hidden" name="listName" th:value="${wishList.name}">
+                <input type="hidden" name="name" th:value="${wish.name}">
+                <button type="submit">Delete</button>
+            </form>
+        </td>
+
+    </tr>
+    </tbody>
+</table>
+
+<p th:if="${#lists.isEmpty(wishList.onsker)}">This wishlist doesn't have any wishes yet.</p>
+
+<br>
+
+<form action="/onskeListe/{name}/tilfojOnske" method="get">
+    <input type="hidden" name="name" th:value="${wishList.name}">
+    <button type="submit">Add a wish</button>
+</form>
+
 <form th:action="@{/onskeListe/{name}/redigerOnskeListe}">
     <input type="hidden" name="name" th:value="${wishList.name}">
     <button type="submit">Edit</button>

@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 public class WishlistExceptionHandler {
 
     @ExceptionHandler(IllegalArgumentException.class)
-    public String handleIllegalArguemnt(IllegalArgumentException e, Model model) {
+    public String handleIllegalArgument(IllegalArgumentException e, Model model) {
         model.addAttribute("errorMessage", e.getMessage());
         return "error";
     }

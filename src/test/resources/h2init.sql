@@ -22,7 +22,7 @@ CREATE TABLE wishes
 (
     id          INT AUTO_INCREMENT PRIMARY KEY,
     wishList_id INT          NOT NULL,
-    wish_name   VARCHAR(255) NOT NULL UNIQUE,
+    wish_name   VARCHAR(255) NOT NULL,
     description VARCHAR(255) NOT NULL,
     link        VARCHAR(255),
     FOREIGN KEY (wishList_id) REFERENCES wishLists (id) ON DELETE CASCADE

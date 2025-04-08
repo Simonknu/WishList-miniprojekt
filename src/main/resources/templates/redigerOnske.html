@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1 th:text="'Edit wish ' + ${wish.name}"> </h1>
+
+<form action="/onskeListe/{listName}/{name}/gemOnskeRedigering" method="post">
+    <input type="hidden" name="listName" th:value="${wishList.name}">
+    <input type="hidden" name="name" th:value="${wish.name}">
+    <label for="newName"> Name
+        <input type="text" name="newName" id="newName" th:value="${wish.name}">
+    </label>
+
+    <label for="newDescription"> Description
+        <input type="text" name="newDescription" id="newDescription" th:value="${wish.description}">
+    </label>
+
+    <label for="newLink"> Link
+        <input type="text" name="newLink" id="newLink" th:value="${wish.link}">
+    </label>
+
+    <button type="submit">Gem</button>
+</form>
+
+<form th:action="@{/onskeListe/{name}/getSpecificWishList}" method="get">
+    <input type="hidden" name="name" th:value="${wishList.name}">
+    <button type="submit">tilbage</button>
+</form>
+</body>
+</html>
