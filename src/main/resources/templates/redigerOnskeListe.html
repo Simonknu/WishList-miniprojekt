@@ -7,6 +7,12 @@
 <body>
 <h1 th:text="'Here you can edit the wish List:' + ${wishList.name}"></h1>
 
+<form th:action="@{/onskeListe/{oldname}/gemRedigering(oldName=${wishList.name})}" method="post">
+    <label for="newName">New name:
+        <input type="text" name="newName" id="newName"></label>
+    <button type="submit">Save</button>
+</form>
+
 <form th:action="@{/onskeListe/{name}/getSpecificWishList}">
     <input type="hidden" name="name" th:value="${wishList.name}">
     <button type="submit">Go back</button>

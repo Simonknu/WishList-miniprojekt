@@ -84,4 +84,12 @@ public class OnskeListeController {
         return "redigerOnskeListe";
     }
 
+    @PostMapping("/{oldName}/gemRedigering")
+    public String gemRedigering(String oldName,String newName){
+
+        service.redigerOnskeListe(oldName, newName);
+
+        return "redirect:/bruger/profil";
+    }
+
 }
