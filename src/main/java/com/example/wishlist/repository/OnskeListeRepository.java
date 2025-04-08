@@ -5,7 +5,6 @@ import com.example.wishlist.models.*;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
-import org.springframework.jdbc.core.simple.JdbcClient;
 import org.springframework.stereotype.Repository;
 
 
@@ -38,9 +37,8 @@ public class OnskeListeRepository {
         public OnskeListe mapRow(ResultSet rs, int rowNum) throws SQLException {
             String name = rs.getString("wishList_name");
 
-            List<Onske> onsker = faOnsker(name);
+            List<Onske> onsker = new ArrayList<>();
 
-            // Return the Attraction object with tags
             return new OnskeListe(name, onsker);
         }
     }
@@ -69,7 +67,7 @@ public class OnskeListeRepository {
     }
 
     public List<Onske> faOnsker(String name) {
-        String sql = "SELECT w.wish_name " +
+        String sql = "SELECT w.wish_name, w.description, w.link " +
                 "FROM wishes w " +
                 "JOIN wishLists wL ON w.wishList_id = wL.id" +
                 " WHERE wL.wishList_name = ?";
@@ -87,9 +85,11 @@ public class OnskeListeRepository {
     public OnskeListe findOnskeListeMedNavn(String name) {
         String sql = "SELECT w.wishList_name FROM wishLists w WHERE wishList_name = ?";
 
-        List<Onske> onsker = faOnsker(name);
         try {
-            return jdbcTemplate.queryForObject(sql, onskeListeRowMapper, name);
+            OnskeListe result = jdbcTemplate.queryForObject(sql, onskeListeRowMapper, name);
+            result.setOnsker(faOnsker(result.getName()));
+            return result;
+
         } catch (EmptyResultDataAccessException e) {
             return null; // return null when no wishlist is found
         }
@@ -104,9 +104,7 @@ public class OnskeListeRepository {
         jdbcTemplate.update(sql, userId, name);
     }
 
-    public void tilfojeOnske() {
 
-    }
 
     public void sletOnskeListe(String name) {
         String sql = "DELETE FROM wishLists WHERE wishList_name = ?";
@@ -126,6 +124,39 @@ public class OnskeListeRepository {
             return false;
         }
         return true;
+    }
+
+    //----------------------------Onske Methods-----------------------------------
+
+    public void tilfojeOnske(String listName, String name, String description, String link) {
+        String getWishListIdSql = "SELECT id FROM wishLists WHERE wishList_name = ?";
+        Integer wishListId = jdbcTemplate.queryForObject(getWishListIdSql, Integer.class, listName);
+
+        // Then insert the new wish
+        String insertWishSql = "INSERT INTO wishes (wishList_id, wish_name, description, link) VALUES (?, ?, ?, ?)";
+        jdbcTemplate.update(insertWishSql, wishListId, name, description, link);
+
+
+    }
+
+    public Onske findOnske(String listName, String name){
+
+        String sql = "SELECT w.wish_name, w.description, w.link " +
+                "FROM wishes w " +
+                "JOIN wishLists wL ON w.wishList_id = wL.id " +
+                "WHERE wL.wishList_name = ? AND w.wish_name = ?";
+
+        return jdbcTemplate.queryForObject(sql, onskeRowMapper, listName, name);
+    }
+
+
+    public void redigerOnske(String listName, String name, String newName, String newDescription, String newLink) {
+        String sql = "UPDATE wishes " +
+                "SET wish_name = ?, description = ?, link = ? " +
+                "WHERE wishList_id = (SELECT id FROM wishLists WHERE wishList_name = ?) " +
+                "AND wish_name = ?";
+
+        jdbcTemplate.update(sql, newName, newDescription, newLink, listName, name);
     }
 
 }

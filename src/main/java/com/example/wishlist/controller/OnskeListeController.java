@@ -31,12 +31,7 @@ public class OnskeListeController {
         return "brugersOnskeListe";
     }
 
-    @GetMapping("/showAllOnskeListe")
-    public String showAllOnskeListe(Model model) {
-        List<OnskeListe> wishLists = service.showAllOnskeliste();
-        model.addAttribute("wishLists", wishLists);
-        return "showAllLists";
-    }
+
 
 
     @GetMapping("/opretteOnskeListe")
@@ -90,6 +85,45 @@ public class OnskeListeController {
         service.redigerOnskeListe(oldName, newName);
 
         return "redirect:/bruger/profil";
+    }
+
+    @GetMapping("/{name}/tilfojOnske")
+    public String tilfojOnske(String name, Model model){
+
+        OnskeListe onskeListe = service.faOnskeListeMedNavn(name);
+        model.addAttribute("wishList", onskeListe);
+        return "tilfojOnske";
+    }
+
+    @PostMapping("/{listName}/gemOnske")
+    public String gemOnske(String listName, String name, String description, String link, Model model){
+        service.tilfojOnske(listName, name, description, link);
+
+        OnskeListe onskeListe = service.faOnskeListeMedNavn(listName);
+        model.addAttribute("wishList", onskeListe);
+        return "brugersOnskeListe";
+    }
+
+    @GetMapping("/{listName}/{name}/redigerOnske")
+    public String redigerOnske(String listName, String name, Model model){
+        OnskeListe onskeListe = service.faOnskeListeMedNavn(listName);
+        model.addAttribute("wishList", onskeListe);
+
+        Onske onske = service.findOnske(listName, name);
+        model.addAttribute("wish", onske);
+
+        return "redigerOnske";
+    }
+
+    @PostMapping("/{listName}/{name}/gemOnskeRedigering")
+    public String gemOnskeRedigering(String listName, String name,
+                                     String newName, String newDescription,
+                                     String newLink, Model model){
+
+        service.redigerOnske(listName, name, newName, newDescription, newLink);
+        OnskeListe onskeListe = service.faOnskeListeMedNavn(listName);
+        model.addAttribute("wishList", onskeListe);
+        return "brugersOnskeListe";
     }
 
 }
