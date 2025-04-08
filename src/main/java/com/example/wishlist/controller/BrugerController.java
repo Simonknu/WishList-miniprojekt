@@ -28,9 +28,14 @@ public class BrugerController {
     }
 
     @PostMapping("/gem")
-    public String gemBruger(@ModelAttribute Bruger bruger) {
-        service.gemBruger(bruger);
-        return "redirect:/";
+    public String gemBruger(@ModelAttribute Bruger bruger, Model model) {
+        if (service.tjekUsernameDup(bruger.getUserName())){
+            model.addAttribute("duplicate",true);
+            return "opret-brugerform";
+        } else {
+            service.gemBruger(bruger);
+            return "redirect:/";
+        }
     }
 
     @GetMapping("/logind")

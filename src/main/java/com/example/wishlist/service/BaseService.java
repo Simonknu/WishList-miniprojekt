@@ -39,6 +39,10 @@ public class BaseService {
         brugerRepository.sletBruger(userName);
     }
 
+    public boolean tjekUsernameDup(String username){
+        return brugerRepository.tjekUsernameDup(username);
+    }
+
 //-----------------------------ONSKE LISTE METHODS---------------------------------------------
 
 
