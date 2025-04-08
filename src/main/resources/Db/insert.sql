@@ -7,7 +7,7 @@ VALUES
 INSERT INTO wishLists (user_id, wishList_name)
 VALUES
     (1, 'Alice’s Birthday Wishes'),  -- Alice's wishlist
-    (2, 'Bob’s Travel Dreams');       -- Bob's wishlist
+    (2, 'Bob’s Travel Dreams');    -- Bob's wishlist
 
 -- Insert Wishes
 INSERT INTO wishes (wishList_id, wish_name, description, link)

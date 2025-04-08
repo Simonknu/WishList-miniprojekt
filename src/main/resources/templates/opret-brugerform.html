@@ -16,6 +16,7 @@
                 th:action="@{/bruger/gem}"
                 th:object="${bruger}"
         >
+            <p th:if="${duplicate}" class="error">Brugernavn eksisterer allerede</p>
 
             <br/>
 

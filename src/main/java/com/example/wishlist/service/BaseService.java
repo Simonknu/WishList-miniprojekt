@@ -39,6 +39,10 @@ public class BaseService {
         brugerRepository.sletBruger(userName);
     }
 
+    public boolean tjekUsernameDup(String username){
+        return brugerRepository.tjekUsernameDup(username);
+    }
+
 //-----------------------------ONSKE LISTE METHODS---------------------------------------------
 
 
@@ -68,5 +72,21 @@ public class BaseService {
 
     public boolean gentagetNavn(String name){
          return onskeListeRepository.gentagetNavn(name);
+    }
+
+    public void tilfojOnske(String listName, String name, String description, String link){
+        onskeListeRepository.tilfojeOnske(listName, name, description, link);
+    }
+
+    public Onske findOnske(String listName, String name){
+       return onskeListeRepository.findOnske(listName, name);
+    }
+
+    public void redigerOnske(String listName, String name, String newName, String newDescription, String newLink){
+        onskeListeRepository.redigerOnske(listName, name, newName, newDescription, newLink);
+    }
+
+    public void sletOnske(String listName, String name){
+        onskeListeRepository.sletOnske(listName, name);
     }
 }
