@@ -159,6 +159,15 @@ public class OnskeListeRepository {
         jdbcTemplate.update(sql, newName, newDescription, newLink, listName, name);
     }
 
+    public void sletOnske(String listName, String name){
+
+        String sql = "DELETE FROM wishes " +
+                "WHERE wishList_id = (SELECT id FROM wishLists WHERE wishList_name = ?) " +
+                "AND wish_name = ?";
+
+        jdbcTemplate.update(sql, listName, name);
+    }
+
 }
 
 

@@ -126,4 +126,12 @@ public class OnskeListeController {
         return "brugersOnskeListe";
     }
 
+    @PostMapping("/{listName}/{name}/sletOnske")
+    public String sletOnske(String listName, String name, Model model){
+        service.sletOnske(listName, name);
+        OnskeListe onskeListe = service.faOnskeListeMedNavn(listName);
+        model.addAttribute("wishList", onskeListe);
+        return "brugersOnskeListe";
+    }
+
 }

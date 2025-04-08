@@ -85,4 +85,8 @@ public class BaseService {
     public void redigerOnske(String listName, String name, String newName, String newDescription, String newLink){
         onskeListeRepository.redigerOnske(listName, name, newName, newDescription, newLink);
     }
+
+    public void sletOnske(String listName, String name){
+        onskeListeRepository.sletOnske(listName, name);
+    }
 }

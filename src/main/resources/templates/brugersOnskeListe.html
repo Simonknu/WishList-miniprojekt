@@ -34,7 +34,9 @@
         </td>
 
         <td>
-            <form action="/onskeListe/{name}/sletOnske" method="post">
+            <form action="/onskeListe/{listName}/{name}/sletOnske" method="post">
+                <input type="hidden" name="listName" th:value="${wishList.name}">
+                <input type="hidden" name="name" th:value="${wish.name}">
                 <button type="submit">Delete</button>
             </form>
         </td>
