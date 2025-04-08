@@ -67,16 +67,21 @@ public class BrugerRepository {
         try {
             jdbcTemplate.update(sql, userName);
         } catch (DataIntegrityViolationException e){
-            throw new IllegalArgumentException("En bruger med navnet '" + userName + "' eksisterer allerede.");
+            throw new IllegalArgumentException("Der opstod en fejl ved sletning af bruger " + e);
 
         }
     }
-//
-//    private static class BrugerRowMapper implements RowMapper<Bruger> {
-//        @Override
-//        public Bruger mapRow(ResultSet rs, int rowNum) throws SQLException {
-//            return new Bruger(rs.getString("USERNAME"), rs.getString("PASSWORD"));
-//
-//        }
-//    }
+
+    public boolean tjekUsernameDup(String username) {
+        String tjekLogindSql = """
+                SELECT COUNT(*) > 0 FROM users WHERE username = ?;
+                """;
+        try {
+            Boolean userExist = jdbcTemplate.queryForObject(tjekLogindSql, Boolean.class, username);
+            return Boolean.TRUE.equals(userExist);
+
+        } catch (DataIntegrityViolationException e) {
+            throw new IllegalArgumentException("Fejl ved tjek af brugernavn " + e);
+        }
+    }
 }
