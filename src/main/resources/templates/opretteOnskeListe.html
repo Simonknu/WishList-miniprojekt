@@ -3,24 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link th:href="@{/ønskeliste.css}" rel="stylesheet">
 </head>
 <body>
-here is where you create a wishlist
+
+    <h1>Opret ny ønskeliste </h1>
 
 
 <div>
     <form action="/onskeListe/{username}/gemOnskeListe" method="post">
-        <label for="name">Name:
-<input type="text" id="name" name="name" required>
+        <label class="h2style" for="name">Navngiv din ønskeliste
+<input type="text" maxlength="15" id="name" name="name" required placeholder="Maks 15 tegn">
         </label>
         <input type="hidden" name="username" th:value="${brugernavn}">
-        <button type="submit">
-            create new wish list
+        <button  class="btn-tilføj" type="submit">
+           Tilføj ønskeliste
         </button>
     </form>
 </div>
 <p th:if="${gentagetNavn}" class="error">Ønskeliste med dette navn findes allerede</p>
 
-<a th:href="@{/bruger/profil}">Go Back</a>
+<a class="btn-back" th:href="@{/bruger/profil}">Tilbage</a>
 </body>
 </html>

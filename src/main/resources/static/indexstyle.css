@@ -13,6 +13,11 @@ body {
     height: 100vh;
     overflow: hidden; /* Forhindrer at hele siden bliver for stor */
 }
+
+.h2style{
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Let skygge på tekst */
+    font-size: large;
+}
 /* Placér billedet i højre side */
 .photo {
     position: absolute;
@@ -35,8 +40,13 @@ body {
     box-shadow: 8px 8px 0px black;
 }
 
+.button-container {
+    justify-content: center; /* Centrerer knapperne horisontalt */
+    gap: 3rem; /* Giver mellemrum mellem knapperne */
+    margin-top: 20px; /* Giver lidt afstand til elementet ovenfor */
+}
 .btn-forside{
-
+    margin: 0 1rem; /* giver vandret afstand */
     bottom: 20px;
     left: 50%;
     transform: translateX(-50%);

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link th:href="@{/style.css}" rel="stylesheet">
+    <link th:href="@{/ønskeliste.css}" rel="stylesheet">
 </head>
 <body>
 <h1 class="h2style" th:text="${wishList.name}">  </h1>
@@ -14,13 +14,11 @@
 </form>
 <form class="btn-custom" th:action="@{/onskeListe/{name}/sletOnskeListe}" method="post">
     <input type="hidden" name="name" th:value="${wishList.name}" >
-    <button type="submit">Delete</button>
+    <button class="btn-delete" type="submit">Slet</button>
 </form>
 <div>
     <a class="btn-back" href="/bruger/profil" >Tilbage</a>
 </div>
-
-<a th:href="@{/bruger/profil}">Go back</a>
 
 
 </body>
