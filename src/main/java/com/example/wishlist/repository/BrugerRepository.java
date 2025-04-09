@@ -14,12 +14,13 @@ public class BrugerRepository {
     }
 
     public void gemBruger(Bruger bruger) {
-        String indsætBrugerSql = """
+        String indsetBrugerSql = """
                 INSERT INTO USERS (USERNAME, PASSWORD)
                 VALUES(?,?)
                 """;
         try {
-            jdbcTemplate.update(indsætBrugerSql, bruger.getUserName(), bruger.getPassword());
+            jdbcTemplate.update(indsetBrugerSql, bruger.getUserName(), bruger.getPassword());
+
         } catch (DataIntegrityViolationException e) {
             throw new IllegalArgumentException("En bruger med navnet '" + bruger.getUserName() + "' eksisterer allerede.");
         }
