@@ -7,7 +7,7 @@
 </head>
 <body>
 
-<h1 th:text="'Add a wish to: ' + ${wishList.name}"> </h1>
+<h1 class="h2style" th:text="'Tilføj ønske til ' + ${wishList.name}"> </h1>
 
 <form action="/onskeListe/{listName}/gemOnske" method="post">
   <input type="hidden" name="listName" th:value="${wishList.name}">
@@ -22,8 +22,7 @@
   <label for="link"> Link
     <input type="text" name="link" id="link">
   </label>
-
-  <button type="submit">Tilføj ønske</button>
+  <button class="btn-action" type="submit">Tilføj ønske</button>
 </form>
 
 <form th:action="@{|/onskeListe/${name}/getSpecificWishList|}" method="get">

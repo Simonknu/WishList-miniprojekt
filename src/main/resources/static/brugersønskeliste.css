@@ -76,14 +76,15 @@ body {
 /* Slet-knap */
 .btn-delete {
     position: fixed; /* Gør knapperne faste */
-    bottom: 20px;
+    top: 20px;
     z-index: 1000; /* Sørg for, at de ligger over alt andet */
-    left: 20px;
-    font-size: 1.2rem;
+    right: 20px;
+    background: pink;
+    font-size: 1rem;
     font-weight: bold;
     font-family: Arial, sans-serif;
-    background: white;
-    padding: 10px 20px;
+
+    padding: 5px 10px;
     border: 2px solid black;
     cursor: pointer;
     text-align: center;
@@ -95,6 +96,55 @@ body {
 
 .btn-delete:hover {
     box-shadow: 5px 5px 0px black;
-    background-color: pink;
+    background-color: red;
+    color: white;
+}
+
+
+.btn-action {
+    font-size: 1rem;  /* lidt mindre */
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+    background: white;
+    padding: 5px 10px;
+    border: 2px solid black;
+    cursor: pointer;
+    color: #333;
+    transition: box-shadow 0.2s ease-in-out;
+    margin: 5px;  /* lidt afstand */
+}
+
+.btn-action:hover {
+    box-shadow: 3px 3px 0px black;
+    background-color: lightgray; /* eller hvad du vil */
+}
+.btn-rediger {
+    position: fixed; /* Gør knapperne faste */
+    top: 70px;
+    z-index: 1000; /* Sørg for, at de ligger over alt andet */
+    right: 20px;
+    font-size: 1rem;  /* lidt mindre */
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+    background: white;
+    padding: 5px 10px;
+    border: 2px solid black;
+    cursor: pointer;
+    color: #333;
+    transition: box-shadow 0.2s ease-in-out;
+    margin: 2px;  /* lidt afstand */
+}
+
+.btn-rediger:hover {
+    box-shadow: 3px 3px 0px black;
+    background-color: lightgray; /* eller hvad du vil */
+}
+.btn-delete-small {
+
+    background: pink;
+}
+
+.btn-delete-small:hover {
+    background: red;
     color: white;
 }

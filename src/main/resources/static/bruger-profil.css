@@ -108,3 +108,26 @@ body {
 .btn-profil:hover {
     box-shadow: 5px 5px 0px black;
 }
+
+.btn-back {
+    position: fixed; /* Gør knapperne faste */
+    top: 20px;
+    z-index: 1000; /* Sørg for, at de ligger over alt andet */
+    left: 20px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+    background: white;
+    padding: 10px 20px;
+    border: 2px solid black;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none; /* Fjerner understregning */
+    color: #333;
+    transition: box-shadow 0.2s ease-in-out;
+    display: inline-block; /* Sikrer korrekt padding og styling */
+}
+
+.btn-back:hover {
+    box-shadow: 5px 5px 0px black;
+}

@@ -5,18 +5,18 @@
     <title>Title</title>
     <link th:href="@{/brugersønskeliste.css}" rel="stylesheet">
 </head>
-<h1 class="wishlist" > Wishlist</h1>
 <body>
-<h1 class="h2style" th:text="${wishList.name}">  </h1>
+<h1 class="wishlist" th:text="${wishList.name}">  </h1>
 
 
 <table>
     <thead>
-    <tr class="h2style">
+    <tr th:if="${!#lists.isEmpty(wishList.onsker)}" class="h2style">
         <th>Ønske</th>
         <th>Beskrivelse</th>
         <th>Link</th>
     </tr>
+
     </thead>
     <tbody>
     <tr th:each="wish : ${wishList.onsker}">
@@ -29,7 +29,9 @@
             <form action="/onskeListe/{listName}/{name}/redigerOnske" method="get">
                 <input type="hidden" name="listName" th:value="${wishList.name}">
                 <input type="hidden" name="name" th:value="${wish.name}">
-                <button>Edit</button>
+
+                <button class="btn-action">Redigér</button>
+
             </form>
 
 
@@ -39,7 +41,10 @@
             <form action="/onskeListe/{listName}/{name}/sletOnske" method="post">
                 <input type="hidden" name="listName" th:value="${wishList.name}">
                 <input type="hidden" name="name" th:value="${wish.name}">
-                <button type="submit">Slet ønske</button>
+
+                <button class="btn-action btn-delete-small" type="submit">Slet ønske</button>
+
+
             </form>
         </td>
 
@@ -47,20 +52,22 @@
     </tbody>
 </table>
 
-<p th:if="${#lists.isEmpty(wishList.onsker)}">Du har endnu ikke tilføjet ønsker til din ønskeliste</p>
+<p class="h2style" th:if="${#lists.isEmpty(wishList.onsker)}">Du har endnu ikke tilføjet ønsker til din ønskeliste</p>
 
 <br>
 
 <form action="/onskeListe/{name}/tilfojOnske" method="get">
     <input type="hidden" name="name" th:value="${wishList.name}">
-    <button type="submit">Tilføj ønske</button>
+    <button class="btn-tilføj" type="submit">Tilføj ønske</button>
 </form>
 <br>
 
 <form th:action="@{/onskeListe/{name}/redigerOnskeListe}">
     <input type="hidden" name="name" th:value="${wishList.name}">
-    <button class="btn-tilføj" type="submit">Rediger ønskeliste</button>
+    <button class="btn-rediger" type="submit">Rediger ønskeliste</button>
+
 </form>
+
 <form th:action="@{/onskeListe/{name}/sletOnskeListe}" method="post">
     <input type="hidden" name="name" th:value="${wishList.name}" >
     <button class="btn-delete" type="submit" >Slet ønskeliste</button>
