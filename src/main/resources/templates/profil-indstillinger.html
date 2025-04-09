@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Opdatér profil</title>
+    <link th:href="@{/style.css}" rel="stylesheet">
     <link th:href="@{/indstillinger.css}" rel="stylesheet">
 </head>
 <body>
@@ -35,7 +36,7 @@
     <br><br><br><br><br><br><br>
     <div class="btn-container">
         <form th:action="@{/bruger/opdaterprofil}" method="post">
-            <button class="btn-opdater" type="submit">Opdatér profil</button>
+            <button class="btn-custom" type="submit">Opdatér profil</button>
         </form>
         <br>
         <form th:action="@{/bruger/sletprofil}" method="post"
