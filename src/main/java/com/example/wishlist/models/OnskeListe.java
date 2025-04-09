@@ -1,6 +1,6 @@
 package com.example.wishlist.models;
 
-import java.util.ArrayList;
+//import java.util.ArrayList;
 import java.util.List;
 
 public class OnskeListe {
@@ -9,16 +9,10 @@ public class OnskeListe {
 
 
     //-------------------------------CONSTRUCTORS --------------------------------------------------------------------
-    public OnskeListe (String name, List Onsker){
+    public OnskeListe (String name, List<Onske> Onsker){
         this.name = name;
         this.Onsker = Onsker;
     }
-
-    public OnskeListe (String name){
-        this.name = name;
-        this.Onsker = new ArrayList<>();
-    }
-
 
     //--------------------------------GETTER METHODS--------------------------------------------------------------------
     public String getName(){

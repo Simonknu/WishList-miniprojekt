@@ -58,10 +58,6 @@ public class BaseService {
         onskeListeRepository.redigerOnskeListe(oldName, newName);
     }
 
-    public List<OnskeListe> showAllOnskeliste(){
-        return onskeListeRepository.faAllOnskeListe();
-    }
-
     public List<OnskeListe> showAllOnskeListeByUser(String username){
         return onskeListeRepository.faOnskeListeFraBruger(username);
     }

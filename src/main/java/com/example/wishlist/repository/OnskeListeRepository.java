@@ -26,11 +26,6 @@ public class OnskeListeRepository {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-    //---------------------------------------GETTER METHOD--------------------------------------------------------------
-    public JdbcTemplate getJdbcTemplate() {
-        return jdbcTemplate;
-    }
-
     //---------------------------------ROW MAPPERS-----------------------------------------------
     public class OnskeListeRowMapper implements RowMapper<OnskeListe> {
         @Override
