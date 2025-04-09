@@ -63,10 +63,9 @@
     box-shadow: 5px 5px 0 black; /* Skygge vises kun ved hover */
 }
 .btn-profil {
-    position: fixed; /* eller fixed hvis den skal følge med når man scroller */
+    position: fixed;
     top: 20px;
     right: 20px;
-
     font-size: 1.2rem;
     font-weight: bold;
     font-family: Arial, sans-serif;

@@ -46,9 +46,8 @@
 }
 
 .btn-profil {
-    position: fixed; /* Gør knapperne faste */
+    position: fixed;
     top: 20px;
-    z-index: 1000; /* Sørg for, at de ligger over alt andet */
     right: 20px;
     font-size: 1.2rem;
     font-weight: bold;
@@ -58,11 +57,11 @@
     border: 2px solid black;
     cursor: pointer;
     text-align: center;
-    text-decoration: none; /* Fjerner understregning */
+    text-decoration: none;
     color: #333;
     transition: box-shadow 0.2s ease-in-out;
     display: inline-block; /* Sikrer korrekt padding og styling */
-
+    z-index: 1000; /* Sørg for, at de ligger over alt andet */
 }
 
 .btn-profil:hover {
