@@ -6,7 +6,7 @@
     <link th:href="@{/brugersønskeliste.css}" rel="stylesheet">
 </head>
 <body>
-<h1 th:text="'Edit wish ' + ${wish.name}"> </h1>
+<h2 class="h2style" th:text="'Rediger ønske: ' + ${wish.name}"> </h2>
 
 <form action="/onskeListe/{listName}/{name}/gemOnskeRedigering" method="post">
     <input type="hidden" name="listName" th:value="${wishList.name}">
@@ -23,12 +23,12 @@
         <input type="text" name="newLink" id="newLink" th:value="${wish.link}">
     </label>
 
-    <button type="submit">Gem</button>
+    <button class="btn-action" type="submit">Gem</button>
 </form>
 
 <form th:action="@{/onskeListe/{name}/getSpecificWishList}" method="get">
     <input type="hidden" name="name" th:value="${wishList.name}">
-    <button type="submit">tilbage</button>
+    <button class="btn-back" type="submit">Tilbage</button>
 </form>
 </body>
 </html>
