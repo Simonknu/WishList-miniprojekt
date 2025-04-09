@@ -70,13 +70,6 @@ public class OnskeListeRepository {
         return jdbcTemplate.query(sql, onskeRowMapper, name);
     }
 
-    public List<OnskeListe> faAllOnskeListe() {
-        String sql = "SELECT w.wishList_name " +
-                "FROM wishlists w";
-        return jdbcTemplate.query(sql, onskeListeRowMapper);
-    }
-
-
     public OnskeListe findOnskeListeMedNavn(String name) {
         String sql = "SELECT w.wishList_name FROM wishLists w WHERE wishList_name = ?";
 
@@ -115,10 +108,7 @@ public class OnskeListeRepository {
 
 
     public boolean gentagetNavn(String name) {
-        if (findOnskeListeMedNavn(name) == null) {
-            return false;
-        }
-        return true;
+        return findOnskeListeMedNavn(name) != null;
     }
 
     //----------------------------Onske Methods-----------------------------------
