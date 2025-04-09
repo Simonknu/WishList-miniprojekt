@@ -1,6 +1,6 @@
 /* Generelle styles */
 body {
-display: flex;
+    display: flex;
     justify-content: center;
     align-items: center;
     font-family: Arial, sans-serif;

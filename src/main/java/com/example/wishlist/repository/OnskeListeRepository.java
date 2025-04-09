@@ -121,7 +121,6 @@ public class OnskeListeRepository {
         String insertWishSql = "INSERT INTO wishes (wishList_id, wish_name, description, link) VALUES (?, ?, ?, ?)";
         jdbcTemplate.update(insertWishSql, wishListId, name, description, link);
 
-
     }
 
     public Onske findOnske(String listName, String name){
