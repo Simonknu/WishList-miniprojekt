@@ -31,19 +31,21 @@
             th:value="${bruger.password}"
             required
     /></p>
+
+    <br><br><br><br><br><br><br>
+    <div class="btn-container">
+        <form th:action="@{/bruger/opdaterprofil}" method="post">
+            <button class="btn-opdater" type="submit">Opdatér profil</button>
+        </form>
+        <br>
+        <form th:action="@{/bruger/sletprofil}" method="post"
+              onsubmit="return confirm('Er du sikker på, at du vil slette din bruger?');">
+            <button class="btn-delete" type="submit">Slet profil</button>
+        </form>
+    </div>
 </form>
 
-<br><br><br><br><br><br><br>
-<div class="btn-container">
-    <form th:action="@{/bruger/opdaterprofil}" method="post">
-        <button class="btn-opdater" type="submit">Opdatér profil</button>
-    </form>
-<br>
-    <form th:action="@{/bruger/sletprofil}" method="post"
-          onsubmit="return confirm('Er du sikker på, at du vil slette din bruger?');">
-        <button class="btn-delete" type="submit">Slet profil</button>
-    </form>
-</div>
+
 
 <a class="btn-back" href="/bruger/minprofil">Tilbage</a>
 
