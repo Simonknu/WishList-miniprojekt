@@ -29,6 +29,8 @@ public class BrugerController {
 
     @PostMapping("/gem")
     public String gemBruger(@ModelAttribute Bruger bruger, Model model) {
+        System.out.println(bruger.getUserName());
+        System.out.println(bruger.getPassword());
         if (service.tjekUsernameDup(bruger.getUserName())){
             model.addAttribute("duplicate",true);
             return "opret-brugerform";
