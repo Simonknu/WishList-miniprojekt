@@ -10,7 +10,7 @@
     background: white;
     padding: 20px;
     border: 2px solid black; /* Tilføjet for at matche Wish List-stilen */
-    box-shadow: 8px 8px 0px black; /* Matchende skyggeeffekt */
+    box-shadow: 8px 8px 0 black; /* Matchende skyggeeffekt */
     width: 300px;
     text-align: center;
 }
@@ -70,7 +70,7 @@ position: fixed;
 }
 
 .btn-back:hover {
-    box-shadow: 5px 5px 0px black;
+    box-shadow: 5px 5px 0 black;
 }
 
 .btn-profil {
@@ -94,13 +94,13 @@ position: fixed;
 }
 
 .btn-profil:hover {
-    box-shadow: 5px 5px 0px black;
+    box-shadow: 5px 5px 0 black;
 }
 
 
 
 .btn-custom:hover {
-    box-shadow: 5px 5px 0px black; /* Skygge vises kun ved hover */
+    box-shadow: 5px 5px 0 black; /* Skygge vises kun ved hover */
 }
 
 
@@ -146,7 +146,7 @@ input {
 }
 
 .btn-delete:hover {
-    box-shadow: 5px 5px 0px black;
+    box-shadow: 5px 5px 0 black;
     background-color: red;
     color: white;
 }
@@ -197,7 +197,7 @@ input {
     background: white;
     padding: 15px;
     border: 2px solid black;
-    box-shadow: 5px 5px 0px black;
+    box-shadow: 5px 5px 0 black;
     text-align: center;
 }
 

@@ -7,9 +7,7 @@ body {
     color: #f4f4f4;
     margin: 0;
     padding: 0;
-    display: flex;
     flex-direction: column;
-    align-items: center;
     height: 100vh;
     overflow: hidden; /* Forhindrer at hele siden bliver for stor */
 }
@@ -25,5 +23,5 @@ body {
     display: inline-block;
     border: 2px solid black;
     position: relative;
-    box-shadow: 8px 8px 0px black;
+    box-shadow: 8px 8px 0 black;
 }
