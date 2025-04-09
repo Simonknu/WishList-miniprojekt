@@ -26,7 +26,7 @@
   <button type="submit">Tilføj ønske</button>
 </form>
 
-<form th:action="@{/onskeListe/{name}/getSpecificWishList}" method="get">
+<form th:action="@{|/onskeListe/${name}/getSpecificWishList|}" method="get">
   <input type="hidden" name="name" th:value="${wishList.name}">
   <button class="btn-back" type="submit">Tilbage</button>
 </form>
