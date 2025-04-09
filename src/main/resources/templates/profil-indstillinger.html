@@ -2,59 +2,50 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>opdater profil</title>
-    <link th:href="@{/style.css}" rel="stylesheet">
-
+    <title>Opdatér profil</title>
+    <link th:href="@{/indstillinger.css}" rel="stylesheet">
 </head>
 <body>
-
 
 <form
         role="form"
         method="post"
         th:action="@{/bruger/opdaterprofil}"
-        th:object="${bruger}"
->
+        th:object="${bruger}">
 
-    <br/>
 
-    <label for="userName">Brugernavn</label>
+    <p><label class="h2style" for="userName">Brugernavn</label>
     <input
             id="userName"
             type="text"
             th:field="*{userName}"
             th:value="${bruger.userName}"
             required
-    />
-    <br/>
-    <label for="password">Adgangskode</label>
+    /></p>
+
+    <p> <label class="h2style" for="password">Adgangskode</label>
     <input
             id="password"
             type="text"
             th:field="*{password}"
             th:value="${bruger.password}"
             required
-    />
-
-
-    <br/>
-    <button class="btn-opdater" type="submit">Opdatér profil</button>
-    <br/>
+    /></p>
 </form>
 
+<br><br><br><br><br><br><br>
+<div class="btn-container">
+    <form th:action="@{/bruger/opdaterprofil}" method="post">
+        <button class="btn-opdater" type="submit">Opdatér profil</button>
+    </form>
 <br>
-<br>
-<br>
-
-<form th:action="@{/bruger/sletprofil}" method="post"
-      onsubmit="return confirm('Er du sikker på, at du vil slette din bruger?');">
-    <button type="submit" class="btn btn-delete">Slet profil</button>
-</form>
-
-<div>
-    <a class="btn-back" href="/bruger/minprofil" >Tilbage</a>
+    <form th:action="@{/bruger/sletprofil}" method="post"
+          onsubmit="return confirm('Er du sikker på, at du vil slette din bruger?');">
+        <button class="btn-delete" type="submit">Slet profil</button>
+    </form>
 </div>
 
-</body>
+<a class="btn-back" href="/bruger/minprofil">Tilbage</a>
 
+</body>
 </html>

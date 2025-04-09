@@ -3,19 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link th:href="@{/brugersønskeliste.css}" rel="stylesheet">
 </head>
 <body>
-<h1 th:text="'Here you can edit the wish List:' + ${wishList.name}"></h1>
+<h1 th:text="'Redigér: ' + ${wishList.name}"></h1>
 
 <form th:action="@{/onskeListe/{oldname}/gemRedigering(oldName=${wishList.name})}" method="post">
-    <label for="newName">New name:
-        <input type="text" name="newName" id="newName"></label>
-    <button type="submit">Save</button>
+    <label for="newName">Ny titel:
+        <input type="text" maxlength="15" name="newName" id="newName" required placeholder="Maks 15 tegn"></label>
+
+    <button  type="submit">Gem ændring</button>
 </form>
 
 <form th:action="@{/onskeListe/{name}/getSpecificWishList}">
     <input type="hidden" name="name" th:value="${wishList.name}">
-    <button type="submit">Go back</button>
+    <button class="btn-back" type="submit">Tilbage</button>
 </form>
 </body>
 </html>

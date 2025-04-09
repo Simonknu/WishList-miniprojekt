@@ -76,26 +76,7 @@ position: fixed;
 
 
 }
-.btn-opdater {
-display: flex;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 1000;
-    font-size: 1.2rem;
-    font-weight: bold;
-    font-family: Arial, sans-serif;
-    background: white;
-    padding: 10px 20px;
-    border: 2px solid black;
-    cursor: pointer;
-    text-align: center;
-    text-decoration: none;
-    color: #333;
-    transition: box-shadow 0.2s ease-in-out;
 
-
-}
 .btn-back {
     position: fixed; /* Gør knapperne faste */
     top: 20px;

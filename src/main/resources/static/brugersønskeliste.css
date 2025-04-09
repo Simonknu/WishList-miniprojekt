@@ -13,7 +13,10 @@ body {
     height: 100vh;
     overflow: hidden; /* Forhindrer at hele siden bliver for stor */
 }
+
 .wishlist {
+    position: fixed;
+    top: 20px;
     font-size: 2rem;
     font-weight: bold;
     font-family: Arial, sans-serif;
@@ -22,51 +25,33 @@ body {
     padding: 10px 20px;
     display: inline-block;
     border: 2px solid black;
-    position: relative;
     box-shadow: 8px 8px 0px black;
 }
 
-.h2style{
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Let skygge på tekst */
-    font-size: large;
-}
-
-.wishlist-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 1rem;
-    max-width: 800px;
-    max-height: 300px;
-    overflow-y: auto;
-    padding: 1rem;
-}
-
-.btn-liste {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 150px;
-    height: 60px;
+.btn-back {
+    position: fixed; /* Gør knapperne faste */
+    top: 20px;
+    z-index: 1000; /* Sørg for, at de ligger over alt andet */
+    left: 20px;
     font-size: 1.2rem;
     font-weight: bold;
     font-family: Arial, sans-serif;
     background: white;
+    padding: 10px 20px;
     border: 2px solid black;
     cursor: pointer;
     text-align: center;
-    text-decoration: none;
+    text-decoration: none; /* Fjerner understregning */
     color: #333;
     transition: box-shadow 0.2s ease-in-out;
+    display: inline-block; /* Sikrer korrekt padding og styling */
 }
 
-.btn-liste:hover {
+.btn-back:hover {
     box-shadow: 5px 5px 0px black;
 }
-
-
-.btn-opret{
-    position: fixed;
-    display: flex;
+.btn-tilføj{
+    position: absolute;
     bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
@@ -82,16 +67,18 @@ body {
     text-decoration: none;
     color: #333;
     transition: box-shadow 0.2s ease-in-out;
-}
 
-.btn-opret:hover {
-    box-shadow: 5px 5px 0px black; /* Skygge vises kun ved hover */
-}
-.btn-profil {
-    position: fixed; /* eller fixed hvis den skal følge med når man scroller */
-    top: 20px;
-    right: 20px;
 
+}
+.btn-tilføj:hover {
+    box-shadow: 5px 5px 0px black;
+}
+/* Slet-knap */
+.btn-delete {
+    position: fixed; /* Gør knapperne faste */
+    bottom: 20px;
+    z-index: 1000; /* Sørg for, at de ligger over alt andet */
+    left: 20px;
     font-size: 1.2rem;
     font-weight: bold;
     font-family: Arial, sans-serif;
@@ -100,11 +87,14 @@ body {
     border: 2px solid black;
     cursor: pointer;
     text-align: center;
-    text-decoration: none;
+    text-decoration: none; /* Fjerner understregning */
     color: #333;
     transition: box-shadow 0.2s ease-in-out;
+    display: inline-block; /* Sikrer korrekt padding og styling */
 }
 
-.btn-profil:hover {
+.btn-delete:hover {
     box-shadow: 5px 5px 0px black;
+    background-color: pink;
+    color: white;
 }

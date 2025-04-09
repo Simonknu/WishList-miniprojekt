@@ -13,19 +13,16 @@ body {
     height: 100vh;
     overflow: hidden; /* Forhindrer at hele siden bliver for stor */
 }
-
+.error {
+    color: pink;
+    font-size: 14px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Let skygge på tekst */
+}
 .h2style{
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Let skygge på tekst */
     font-size: large;
 }
-/* Placér billedet i højre side */
-.photo {
-    position: absolute;
-    right: 1%; /* Juster afstanden fra højre */
-    top: 30%;
-    transform: translateY(-50%); /* Centrerer billedet vertikalt */
-    min-width: 500px;
-}
+
 /* Wish List styling */
 .wishlist {
     font-size: 2rem;

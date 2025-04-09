@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+  <link th:href="@{/brugersønskeliste.css}" rel="stylesheet">
 </head>
 <body>
 
@@ -22,12 +23,12 @@
     <input type="text" name="link" id="link">
   </label>
 
-  <button type="submit">Add wish</button>
+  <button type="submit">Tilføj ønske</button>
 </form>
 
 <form th:action="@{/onskeListe/{name}/getSpecificWishList}" method="get">
   <input type="hidden" name="name" th:value="${wishList.name}">
-  <button type="submit">Go back</button>
+  <button class="btn-back" type="submit">Tilbage</button>
 </form>
 
 </body>

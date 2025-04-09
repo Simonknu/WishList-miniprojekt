@@ -3,13 +3,7 @@ package com.example.wishlist.repository;
 import com.example.wishlist.models.Bruger;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
-
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 
 @Repository
 public class BrugerRepository {
@@ -19,28 +13,25 @@ public class BrugerRepository {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-
     public void gemBruger(Bruger bruger) {
         String indsætBrugerSql = """
                 INSERT INTO USERS (USERNAME, PASSWORD)
-                VALUES(?,?)""";
+                VALUES(?,?)
+                """;
         try {
             jdbcTemplate.update(indsætBrugerSql, bruger.getUserName(), bruger.getPassword());
-
         } catch (DataIntegrityViolationException e) {
             throw new IllegalArgumentException("En bruger med navnet '" + bruger.getUserName() + "' eksisterer allerede.");
         }
     }
 
-
     public boolean logInd(String userName, String password) {
         String tjekLogindSql = """
-                SELECT COUNT(*) > 0 FROM users WHERE username = ? AND password = ?;
+                SELECT COUNT(*) > 0 FROM USERS WHERE BINARY USERNAME = ? AND BINARY PASSWORD = ?;
                 """;
         try {
-           Boolean userExist = jdbcTemplate.queryForObject(tjekLogindSql, Boolean.class, userName , password);
-           return Boolean.TRUE.equals(userExist);
-
+            Boolean userExist = jdbcTemplate.queryForObject(tjekLogindSql, Boolean.class, userName, password);
+            return Boolean.TRUE.equals(userExist);
         } catch (DataIntegrityViolationException e) {
             throw new IllegalArgumentException("Fejl ved login", e);
         }
@@ -49,37 +40,33 @@ public class BrugerRepository {
     public void opdaterProfil(Bruger gammelBruger, Bruger opdateretBruger) {
         String opdaterBrugerSql = """
                 UPDATE USERS
-                SET USERNAME=?, PASSWORD=?
-                WHERE USERNAME=? AND PASSWORD=?
+                SET USERNAME = ?, PASSWORD = ?
+                WHERE BINARY USERNAME = ? AND BINARY PASSWORD = ?
                 """;
         try {
             jdbcTemplate.update(opdaterBrugerSql, opdateretBruger.getUserName(), opdateretBruger.getPassword(),
                     gammelBruger.getUserName(), gammelBruger.getPassword());
-
         } catch (DataIntegrityViolationException e) {
             throw new IllegalArgumentException("En bruger med navnet '" + opdateretBruger.getUserName() + "' eksisterer allerede.");
         }
-
     }
 
     public void sletBruger(String userName) {
-        String sql = "DELETE FROM USERS WHERE USERNAME = ?";
+        String sql = "DELETE FROM USERS WHERE BINARY USERNAME = ?";
         try {
             jdbcTemplate.update(sql, userName);
-        } catch (DataIntegrityViolationException e){
+        } catch (DataIntegrityViolationException e) {
             throw new IllegalArgumentException("Der opstod en fejl ved sletning af bruger " + e);
-
         }
     }
 
     public boolean tjekUsernameDup(String username) {
-        String tjekLogindSql = """
-                SELECT COUNT(*) > 0 FROM users WHERE username = ?;
+        String tjekUsernameSql = """
+                SELECT COUNT(*) > 0 FROM USERS WHERE BINARY USERNAME = ?;
                 """;
         try {
-            Boolean userExist = jdbcTemplate.queryForObject(tjekLogindSql, Boolean.class, username);
+            Boolean userExist = jdbcTemplate.queryForObject(tjekUsernameSql, Boolean.class, username);
             return Boolean.TRUE.equals(userExist);
-
         } catch (DataIntegrityViolationException e) {
             throw new IllegalArgumentException("Fejl ved tjek af brugernavn " + e);
         }

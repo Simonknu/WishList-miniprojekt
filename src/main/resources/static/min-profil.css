@@ -1,0 +1,74 @@
+/* Generelle styles */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    background-color: #708090;
+    color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden; /* Forhindrer at hele siden bliver for stor */
+}
+
+.btn-back {
+    position: fixed; /* Gør knapperne faste */
+    top: 20px;
+    z-index: 1000; /* Sørg for, at de ligger over alt andet */
+    left: 20px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+    background: white;
+    padding: 10px 20px;
+    border: 2px solid black;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none; /* Fjerner understregning */
+    color: #333;
+    transition: box-shadow 0.2s ease-in-out;
+    display: inline-block; /* Sikrer korrekt padding og styling */
+}
+
+.btn-back:hover {
+    box-shadow: 5px 5px 0px black;
+}
+
+/* Knapper (firkantede, hvid baggrund, sort kant) */
+.btn-custom {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    font-size: 1.2rem;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+    background: white;
+    padding: 10px 20px;
+    border: 2px solid black;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    color: #333;
+    transition: box-shadow 0.2s ease-in-out;
+
+
+}
+.btn-custom:hover {
+    box-shadow: 5px 5px 0px black; /* Skygge vises kun ved hover */
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    margin: 10px 0;
+    border: 2px solid black; /* Sort kant for ensartet stil */
+    background: white;
+    color: #333;
+    border-radius: 0; /* Fjerner afrundede hjørner */
+}
