@@ -1,6 +1,5 @@
-/* Generelle styles */
 body {
-display: flex;
+    display: flex;
     justify-content: center;
     align-items: center;
     font-family: Arial, sans-serif;
@@ -8,29 +7,13 @@ display: flex;
     color: #f4f4f4;
     margin: 0;
     padding: 0;
-    display: flex;
     flex-direction: column;
-    align-items: center;
     height: 100vh;
     overflow: hidden; /* Forhindrer at hele siden bliver for stor */
 }
 
-.h2style{
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Let skygge på tekst */
-    font-size: large;
-}
-/* Container til formularer */
-.container {
-    background: white;
-    padding: 20px;
-    border: 2px solid black; /* Tilføjet for at matche Wish List-stilen */
-    box-shadow: 8px 8px 0px black; /* Matchende skyggeeffekt */
-    width: 300px;
-    text-align: center;
-}
-
 /* Wish List styling */
-.wishlist {
+.TextBox {
     font-size: 2rem;
     font-weight: bold;
     font-family: Arial, sans-serif;
@@ -40,207 +23,5 @@ display: flex;
     display: inline-block;
     border: 2px solid black;
     position: relative;
-    box-shadow: 8px 8px 0px black;
+    box-shadow: 8px 8px 0 black;
 }
-
-
-/* Knap-container */
-.button-container {
-    display: flex;
-    justify-content: center; /* Centrerer knapperne vandret */
-    align-items: center; /* Centrerer knapperne lodret */
-    gap: 20px; /* Afstand mellem knapper */
-    margin-top: 20px; /* Lidt luft under teksten */
-}
-
-
-
-/* Knapper (firkantede, hvid baggrund, sort kant) */
-.btn-custom {
-position: fixed;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 1000;
-    font-size: 1.2rem;
-    font-weight: bold;
-    font-family: Arial, sans-serif;
-    background: white;
-    padding: 10px 20px;
-    border: 2px solid black;
-    cursor: pointer;
-    text-align: center;
-    text-decoration: none;
-    color: #333;
-    transition: box-shadow 0.2s ease-in-out;
-
-
-}
-
-.btn-back {
-    position: fixed; /* Gør knapperne faste */
-    top: 20px;
-    z-index: 1000; /* Sørg for, at de ligger over alt andet */
-    left: 20px;
-    font-size: 1.2rem;
-    font-weight: bold;
-    font-family: Arial, sans-serif;
-    background: white;
-    padding: 10px 20px;
-    border: 2px solid black;
-    cursor: pointer;
-    text-align: center;
-    text-decoration: none; /* Fjerner understregning */
-    color: #333;
-    transition: box-shadow 0.2s ease-in-out;
-    display: inline-block; /* Sikrer korrekt padding og styling */
-}
-
-.btn-back:hover {
-    box-shadow: 5px 5px 0px black;
-}
-
-.btn-profil {
-    position: fixed; /* Gør knapperne faste */
-    top: 20px;
-    z-index: 1000; /* Sørg for, at de ligger over alt andet */
-    right: 20px;
-    font-size: 1.2rem;
-    font-weight: bold;
-    font-family: Arial, sans-serif;
-    background: white;
-    padding: 10px 20px;
-    border: 2px solid black;
-    cursor: pointer;
-    text-align: center;
-    text-decoration: none; /* Fjerner understregning */
-    color: #333;
-    transition: box-shadow 0.2s ease-in-out;
-    display: inline-block; /* Sikrer korrekt padding og styling */
-
-}
-
-.btn-profil:hover {
-    box-shadow: 5px 5px 0px black;
-}
-
-
-
-.btn-custom:hover {
-    box-shadow: 5px 5px 0px black; /* Skygge vises kun ved hover */
-}
-
-
-/* Input felter */
-input {
-    width: 100%;
-    padding: 8px;
-    margin: 10px 0;
-    border: 2px solid black; /* Sort kant for ensartet stil */
-    background: white;
-    color: #333;
-    border-radius: 0; /* Fjerner afrundede hjørner */
-}
-
-/* Fejlbeskeder */
-.error {
-    color: pink;
-    font-size: 14px;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Let skygge på tekst */
-}
-
-/* Velkomstbesked */
-.welcome-message {
-    font-size: 60px;
-    font-weight: bold;
-    margin-bottom: 20px;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Let skygge på tekst */
-}
-
-/* Slet-knap */
-.btn-delete {
-    font-size: 1.2rem;
-    font-weight: bold;
-    font-family: Arial, sans-serif;
-    background: white;
-    padding: 10px 20px;
-    border: 2px solid black;
-    cursor: pointer;
-    text-align: center;
-    text-decoration: none;
-    color: #333;
-    transition: box-shadow 0.2s ease-in-out, background-color 0.2s;
-}
-
-.btn-delete:hover {
-    box-shadow: 5px 5px 0px black;
-    background-color: red;
-    color: white;
-}
-
-.onsk {
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Let skygge på tekst */
-    font-size: 2rem; /* Gør teksten større */
-    font-weight: bold; /* Gør teksten fed */
-   left: 200px;
-}
-
-
-
-.listeting-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Dynamisk tilpasning */
-    gap: 20px; /* Afstand mellem ønskelister */
-    list-style-type: none; /* Fjerner punkter fra lister */
-    padding: 10px;
-    padding-right: 15px;
-    max-width: 800px; /* Begræns bredden for at holde max 4 per række */
-    margin: 0 auto; /* Centrerer containeren */
-
-    max-height: 60vh; /* Begræns højden så "Create a WishList" ikke skubbes væk */
-    overflow-y: auto; /* Tilføj scrollbar hvis der er for mange ønskelister */
-}
-
-/* Custom scrollbar styling */
-.listeting-container::-webkit-scrollbar {
-    width: 8px; /* Gør scrollbar smallere */
-}
-
-.listeting-container::-webkit-scrollbar-track {
-    background: #2c2f33; /* Mørk baggrund */
-    border-radius: 4px;
-}
-
-.listeting-container::-webkit-scrollbar-thumb {
-    background: #555; /* Giver en moderne grå farve */
-    border-radius: 4px;
-}
-
-.listeting-container::-webkit-scrollbar-thumb:hover {
-    background: #888; /* Lysere farve ved hover */
-}
-/* Styling til hvert wishlist-item */
-.listeting-item {
-    background: white;
-    padding: 15px;
-    border: 2px solid black;
-    box-shadow: 5px 5px 0px black;
-    text-align: center;
-}
-
-/* Gør knapperne større og ensartede */
-.listeting-btn-custom {
-    width: 100%;
-    padding: 10px;
-    font-size: 1.2rem;
-    font-weight: bold;
-    font-family: Arial, sans-serif;
-    background: white;
-    border: 2px solid black;
-    cursor: pointer;
-    text-align: center;
-    text-decoration: none;
-    color: #333;
-    transition: box-shadow 0.2s ease-in-out;
-}
-

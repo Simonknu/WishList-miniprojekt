@@ -1,3 +1,4 @@
+/* Generelle styles */
 
 
 .h2style{
@@ -16,7 +17,6 @@
 
 
 
-
 /* Knap-container */
 .button-container {
     display: flex;
@@ -25,7 +25,6 @@
     gap: 20px; /* Afstand mellem knapper */
     margin-top: 20px; /* Lidt luft under teksten */
 }
-
 
 
 
@@ -47,13 +46,51 @@ input {
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Let skygge på tekst */
 }
 
+/* Velkomstbesked */
+.welcome-message {
+    font-size: 60px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Let skygge på tekst */
+}
+
+/* Slet-knap */
+.btn-delete {
+    font-size: 1.2rem;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+    background: white;
+    padding: 10px 20px;
+    border: 2px solid black;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    color: #333;
+    transition: box-shadow 0.2s ease-in-out, background-color 0.2s;
+}
+
+.btn-delete:hover {
+    box-shadow: 5px 5px 0 black;
+    background-color: red;
+    color: white;
+}
+
+.onsk {
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Let skygge på tekst */
+    font-size: 2rem; /* Gør teksten større */
+    font-weight: bold; /* Gør teksten fed */
+   left: 200px;
+}
+
+
 
 .listeting-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Dynamisk tilpasning */
     gap: 20px; /* Afstand mellem ønskelister */
     list-style-type: none; /* Fjerner punkter fra lister */
-    padding: 10px 15px 10px 10px;
+    padding: 10px;
+    padding-right: 15px;
     max-width: 800px; /* Begræns bredden for at holde max 4 per række */
     margin: 0 auto; /* Centrerer containeren */
 
@@ -88,4 +125,19 @@ input {
     text-align: center;
 }
 
+/* Gør knapperne større og ensartede */
+.listeting-btn-custom {
+    width: 100%;
+    padding: 10px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+    background: white;
+    border: 2px solid black;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    color: #333;
+    transition: box-shadow 0.2s ease-in-out;
+}
 

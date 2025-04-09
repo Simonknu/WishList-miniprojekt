@@ -3,10 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link th:href="@{/style.css}" rel="stylesheet">
+    <link th:href="@{/buttons.css}" rel="stylesheet">
     <link th:href="@{/brugersønskeliste.css}" rel="stylesheet">
 </head>
 <body>
-<h1 class="wishlist" th:text="${wishList.name}">  </h1>
+<h1 class="TextBox" th:text="${wishList.name}">  </h1>
 
 
 <table>
