@@ -45,7 +45,7 @@
 
 }
 .btn-custom:hover {
-    box-shadow: 5px 5px 0px black; /* Skygge vises kun ved hover */
+    box-shadow: 5px 5px 0 black; /* Skygge vises kun ved hover */
 }
 
 input {
