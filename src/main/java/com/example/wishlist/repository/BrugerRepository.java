@@ -28,11 +28,11 @@ public class BrugerRepository {
 
     public boolean logInd(String userName, String password) {
         String tjekLogindSql = """
-                SELECT COUNT(*) > 0 FROM USERS WHERE BINARY USERNAME = ? AND BINARY PASSWORD = ?;
-                """;
+            SELECT COUNT(*) FROM USERS WHERE BINARY USERNAME = ? AND BINARY PASSWORD = ?
+            """;
         try {
-            Boolean userExist = jdbcTemplate.queryForObject(tjekLogindSql, Boolean.class, userName, password);
-            return Boolean.TRUE.equals(userExist);
+            Integer count = jdbcTemplate.queryForObject(tjekLogindSql, Integer.class, userName, password);
+            return count != null && count > 0;
         } catch (DataIntegrityViolationException e) {
             throw new IllegalArgumentException("Fejl ved login", e);
         }
