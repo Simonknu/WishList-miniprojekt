@@ -62,12 +62,14 @@ public class BrugerRepository {
     }
 
     public void sletBruger(String userName) {
-        String sql = "DELETE FROM USERS WHERE BINARY USERNAME = ?";
-        try {
-            jdbcTemplate.update(sql, userName);
-        } catch (DataIntegrityViolationException e) {
-            throw new IllegalArgumentException("Der opstod en fejl ved sletning af bruger " + e);
+        String sql;
+        if (dbUrl.contains("mysql")) {
+            sql = "DELETE FROM USERS WHERE BINARY USERNAME = ?";
+        } else {
+            sql = "DELETE FROM USERS WHERE USERNAME = ?";
         }
+
+        jdbcTemplate.update(sql, userName);
     }
 
     public boolean tjekUsernameDup(String username) {
