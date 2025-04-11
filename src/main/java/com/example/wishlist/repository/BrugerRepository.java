@@ -1,6 +1,8 @@
 package com.example.wishlist.repository;
 
 import com.example.wishlist.models.Bruger;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.dao.DataAccessException;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
@@ -26,14 +28,21 @@ public class BrugerRepository {
         }
     }
 
+    @Value("${spring.datasource.url}")
+    private String dbUrl;
+
     public boolean logInd(String userName, String password) {
-        String tjekLogindSql = """
-            SELECT COUNT(*) FROM USERS WHERE BINARY USERNAME = ? AND BINARY PASSWORD = ?
-            """;
+        String sql;
+        if (dbUrl.contains("mysql")) {
+            sql = "SELECT COUNT(*) FROM USERS WHERE BINARY USERNAME = ? AND BINARY PASSWORD = ?";
+        } else {
+            sql = "SELECT COUNT(*) FROM USERS WHERE USERNAME = ? AND PASSWORD = ?";
+        }
+
         try {
-            Integer count = jdbcTemplate.queryForObject(tjekLogindSql, Integer.class, userName, password);
+            Integer count = jdbcTemplate.queryForObject(sql, Integer.class, userName, password);
             return count != null && count > 0;
-        } catch (DataIntegrityViolationException e) {
+        } catch (DataAccessException e) {
             throw new IllegalArgumentException("Fejl ved login", e);
         }
     }
